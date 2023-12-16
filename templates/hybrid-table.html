@@ -1,15 +1,11 @@
 <table class="hybrid">
   <tr>
     <td class="flower">
-      <div class="icon">
-        <img src="icons/{{species}}/{{color1}}.png">
-      </div>
+      {{species|flower_icon(color1, genes1)}}
       <div class="genes">{{genes1}}</div>
     </td>
     <td class="flower">
-      <div class="icon">
-        <img src="icons/{{species}}/{{color2}}.png">
-      </div>
+      {{species|flower_icon(color2, genes2)}}
       <div class="genes">{{genes2}}</div>
     </td>
     <td class="results">

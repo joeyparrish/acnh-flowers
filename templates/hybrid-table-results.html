@@ -1,10 +1,8 @@
 <table class="hybrid-results">
   {% for color in results.keys() %}
-  <tr>
+  <tr class="possibility">
     <td class="flower">
-      <div class="icon">
-        <img src="icons/{{species}}/{{color}}.png">
-      </div>
+      {{species|flower_icon(color)}}
       <div class="probability">{{results[color].probability * 100}}%</div>
     </td>
     <td class="genes">

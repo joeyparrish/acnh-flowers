@@ -4,7 +4,7 @@ import jinja2
 import markupsafe
 
 from hybridize import hybridize
-from phenotypes import phenotypes
+from phenotypes import phenotypes, seeds
 
 class GroupedResults(object):
   def __init__(self):
@@ -14,6 +14,20 @@ class GroupedResults(object):
 
   def __repr__(self):
     return repr(self.__dict__)
+
+
+def flower_icon_filter(species, color, genes=None):
+  is_seed = genes is not None and genes == seeds[species].get(color)
+  seed_class = 'seed' if is_seed else ''
+  template = ''.join([
+      '<div class="icon">',
+      '<img src="icons/{species}/{color}.png">',
+      '<div class="{seed_class}">',
+      '</div>',
+      '</div>',
+  ])
+  return markupsafe.Markup(template.format(
+      seed_class=seed_class, species=species, color=color))
 
 
 @jinja2.pass_environment
@@ -32,7 +46,6 @@ def hybridize_filter(env, species, genes1, genes2, **kwargs):
     grouped_results[color].genes.append((genes, probability))
     grouped_results[color].probability += probability
 
-  print(species, grouped_results)
   results_table_template = env.get_template('hybrid-table-results.html')
   results_table = markupsafe.Markup(results_table_template.render(
       results=grouped_results, species=species))
@@ -50,6 +63,7 @@ env = jinja2.Environment(
     loader=jinja2.FileSystemLoader('../templates'),
     autoescape=jinja2.select_autoescape())
 env.filters['hybridize'] = hybridize_filter
+env.filters['flower_icon'] = flower_icon_filter
 
 template = env.get_template('windflowers.html')
 print(template.render())

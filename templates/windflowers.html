@@ -1,1 +1,18 @@
-{{ 'windflower'|hybridize('101', '101', red='trash') }}
+<html>
+  <head>
+    <link rel="stylesheet" href="styles/styles.css">
+  </head>
+  <body>
+
+{{ 'windflower' | hybridize('001', '001',
+   white='trash', blue='next_stage') }}
+
+{{ 'windflower' | hybridize('200', '002',
+   red='next_stage') }}
+
+{{ 'windflower' | hybridize('101', '101',
+   red='trash', blue='trash', white='trash',
+   purple='keep') }}
+
+  </body>
+</html>

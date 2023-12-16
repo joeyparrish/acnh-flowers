@@ -145,3 +145,46 @@ phenotypes = {
   'windflower': windflower,
   'mum': mum,
 }
+
+seeds = {
+  'rose': {
+    'white': '0010',
+    'yellow': '0020',
+    'red': '2001',
+  },
+  'tulip': {
+    'white': '001',
+    'yellow': '020',
+    'red': '201',
+  },
+  'pansy': {
+    'white': '001',
+    'yellow': '020',
+    'red': '200',
+  },
+  'cosmo': {
+    'white': '001',
+    'yellow': '021',
+    'red': '200',
+  },
+  'lily': {
+    'white': '002',
+    'yellow': '020',
+    'red': '201',
+  },
+  'hyacinth': {
+    'white': '001',
+    'yellow': '020',
+    'red': '201',
+  },
+  'windflower': {
+    'white': '001',
+    'orange': '020',
+    'red': '200',
+  },
+  'mum': {
+    'white': '001',
+    'yellow': '020',
+    'red': '200',
+  },
+}
