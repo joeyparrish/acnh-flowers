@@ -16,6 +16,11 @@ class GroupedResults(object):
     return repr(self.__dict__)
 
 
+def load_tab_content_filter(tab):
+  template = env.get_template('tabs/{}.html'.format(tab))
+  return markupsafe.Markup(template.render())
+
+
 def flower_icon_filter(species, color, genes=None):
   is_seed = genes is not None and genes == seeds[species].get(color)
   seed_class = 'seed' if is_seed else ''
@@ -64,8 +69,12 @@ env = jinja2.Environment(
     autoescape=jinja2.select_autoescape())
 env.filters['hybridize'] = hybridize_filter
 env.filters['flower_icon'] = flower_icon_filter
+env.filters['load_tab_content'] = load_tab_content_filter
 
-for name in ['windflowers', 'mums']:
-  template = env.get_template(name + '.html')
-  with open(name + '.html', 'w') as f:
-    f.write(template.render())
+template = env.get_template('index.html')
+with open('index.html', 'w') as f:
+  f.write(template.render(tabs={
+      'overview': 'Overview',
+      'windflowers': 'Windflowers',
+      'mums': 'Mums',
+  }))

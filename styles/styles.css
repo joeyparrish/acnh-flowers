@@ -9,7 +9,49 @@ body {
   color: black;
   font-family: sans-serif;
   font-family: 'ACNH';
+
+  max-width: 80em;
+  margin: auto;
 }
+
+
+#tabs {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+#tabs .radiotab {
+  position: absolute;
+  opacity: 0;
+}
+
+#tabs .label {
+  background: lightgray;
+  cursor: pointer;
+  display: inline-block;
+  padding: 1em;
+  border: solid 1px black;
+}
+
+#tabs .label:active {
+  /* FIXME: fix keyboard navigation and styles */
+}
+
+#tabs .panel {
+  display: none;
+  width: 100%;
+}
+
+#tabs input:checked + .label {
+  background: white;
+}
+
+#tabs input:checked + .label + .panel {
+  display: block;
+  order: 99;
+}
+
 
 table.hybrid {
   border: solid 1em green;
@@ -95,6 +137,15 @@ table.hybrid-results td.outcome {
   body {
     background: black;
     color: white;
+  }
+
+  #tabs .label {
+    background: dimgray;
+    border: solid 1px white;
+  }
+
+  #tabs input:checked + .label {
+    background: darkgray;
   }
 
   table.hybrid-results td.outcome img {
