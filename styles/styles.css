@@ -19,6 +19,14 @@ table.hybrid div.genes {
   text-align: center;
 }
 
+table.hybrid td.symbol {
+  font-size: 300%;
+}
+
+table.hybrid div.probability {
+  font-size: 75%;
+}
+
 table.hybrid-results {
   border-collapse: collapse;
 }
