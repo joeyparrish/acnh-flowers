@@ -1,0 +1,68 @@
+table.hybrid {
+  border: solid 1em green;
+  border-radius: 1em;
+}
+
+table.hybrid td.flower img {
+  width: 4em;
+  height: 4em;
+}
+
+table.hybrid-results td.flower img {
+  width: 2em;
+  height: 2em;
+}
+
+table.hybrid div.genes {
+  border: solid 0.2em green;
+  border-radius: 1em;
+  text-align: center;
+}
+
+table.hybrid-results {
+  border-collapse: collapse;
+}
+
+table.hybrid-results tr.possibility {
+  border: solid 0.2em green;
+}
+
+table.hybrid-results td.outcome img {
+  width: 3em;
+  height: 3em;
+}
+
+table.hybrid div.icon {
+  position: relative;
+}
+
+table.hybrid div.icon img.overlay {  
+  width: 1.5em;
+  height: 1.5em;
+
+  position: absolute;
+  bottom: 0.5em;
+  right: 0.5em;
+
+  visibility: hidden;
+}
+
+table.hybrid div.icon img.overlay.seed {
+  visibility: visible;
+  content: url(../icons/seed-bag.png);
+}
+
+table.hybrid-results td.flower {
+  width: 4em;
+  text-align: center;
+}
+
+table.hybrid-results td.genes {
+  width: 4em;
+  text-align: center;
+}
+
+table.hybrid-results td.outcome {
+  width: 4em;
+  text-align: center;
+}

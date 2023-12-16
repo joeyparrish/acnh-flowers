@@ -22,8 +22,8 @@ def flower_icon_filter(species, color, genes=None):
   template = ''.join([
       '<div class="icon">',
       '<img src="icons/{species}/{color}.png">',
-      '<div class="{seed_class}">',
-      '</div>',
+      '<img class="overlay {seed_class}">',
+      '</img>',
       '</div>',
   ])
   return markupsafe.Markup(template.format(
