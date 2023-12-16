@@ -1,0 +1,23 @@
+<table class="hybrid-results">
+  {% for color in results.keys() %}
+  <tr>
+    <td class="flower">
+      <div class="icon">
+        <img src="icons/{{species}}/{{color}}.png">
+      </div>
+      <div class="probability">{{results[color].probability * 100}}%</div>
+    </td>
+    <td class="genes">
+      {% for genes, probability in results[color].genes %}
+      <div class="genotype">
+        <div class="genes">{{genes}}</div>
+        <div class="probability">{{probability * 100}}%</div>
+      </div>
+      {% endfor %}
+    </td>
+    <td class="outcome">
+      <img src="icons/outcomes/{{results[color].outcome}}.png">
+    </td>
+  </tr>
+  {% endfor %}
+</table>

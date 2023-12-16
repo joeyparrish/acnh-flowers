@@ -1,9 +1,8 @@
-#!/usr/bin/env python3
-
-from phenotypes import phenotypes
-import sys
-
 def mix_gene(g1, g2):
+  """Mix two single genes in ternary format (0, 1, 2).
+
+  Yields a sequence of tuples (resulting gene and probability from 0-1)."""
+
   if g1 == '0':
     if g2 == '0':
       yield ('0', 1)
@@ -32,7 +31,11 @@ def mix_gene(g1, g2):
     elif g2 == '2':
       yield ('2', 1)
 
-def mix_genes(g1, g2):
+def hybridize(g1, g2):
+  """Hybridize two gene sequences in ternary format (0, 1, 2) of any length.
+
+  Returns a list of tuples (resulting sequence and probaility from 0-1)."""
+
   assert len(g1) == len(g2)
 
   mixes = [('', 1)]
@@ -49,11 +52,3 @@ def mix_genes(g1, g2):
     mixes = new_mixes
 
   return mixes
-
-def main(species, g1, g2):
-  for genes, prob in mix_genes(g1, g2):
-    color = phenotypes[species][genes]
-    print(genes, color, prob)
-
-if __name__ == '__main__':
-  main(sys.argv[1], sys.argv[2], sys.argv[3])
