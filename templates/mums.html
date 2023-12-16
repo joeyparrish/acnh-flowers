@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <title>ACNH Flower Guide</title>
+    <link rel="stylesheet" href="styles/styles.css">
+  </head>
+  <body>
+
+{{ 'mum' | hybridize('200', '020',
+   yellow='next_stage') }}
+
+{{ 'mum' | hybridize('110', '110',
+   white='trash', yellow='trash', red='trash', purple='recycle',
+   green='keep') }}
+
+<p>
+Recycling purples into the yellows will accelerate the process by increasing
+the likelihood of green hybrids.  If you get a purple and your plot is full,
+replace a yellow with a purple.
+</p>
+
+<details>
+<summary>Detailed outcomes for recycling purples into the yellows</summary>
+
+{{ 'mum' | hybridize('110', '120',
+   yellow='trash', purple='recycle', green='keep') }}
+
+{{ 'mum' | hybridize('110', '210',
+   yellow='trash', red='trash', purple='recycle', green='keep') }}
+
+{{ 'mum' | hybridize('120', '210',
+   yellow='trash', purple='recycle', green='keep') }}
+
+{{ 'mum' | hybridize('120', '120',
+   yellow='trash', purple='recycle', green='keep') }}
+
+{{ 'mum' | hybridize('210', '210',
+   red='trash', purple='recycle', green='keep') }}
+</details>
+
+  </body>
+</html>

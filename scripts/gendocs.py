@@ -60,10 +60,12 @@ def hybridize_filter(env, species, genes1, genes2, **kwargs):
 
 
 env = jinja2.Environment(
-    loader=jinja2.FileSystemLoader('../templates'),
+    loader=jinja2.FileSystemLoader('templates'),
     autoescape=jinja2.select_autoescape())
 env.filters['hybridize'] = hybridize_filter
 env.filters['flower_icon'] = flower_icon_filter
 
-template = env.get_template('windflowers.html')
-print(template.render())
+for name in ['windflowers', 'mums']:
+  template = env.get_template(name + '.html')
+  with open(name + '.html', 'w') as f:
+    f.write(template.render())
