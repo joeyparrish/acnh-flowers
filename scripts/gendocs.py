@@ -72,7 +72,8 @@ def hybridize_filter(env, species, genes1, genes2, **kwargs):
   hybrid_table = markupsafe.Markup(hybrid_table_template.render(
       results_table=results_table, species=species,
       genes1=genes1, color1=color1,
-      genes2=genes2, color2=color2))
+      genes2=genes2, color2=color2,
+      show_outcomes=(not not kwargs.keys()) ))
 
   return hybrid_table
 
@@ -91,4 +92,5 @@ with open('index.html', 'w') as f:
       'overview': 'Overview',
       'windflowers': 'Windflowers',
       'mums': 'Mums',
+      'first-gen-hybrids': 'Appendix: All First Generation Hybrids',
   }))

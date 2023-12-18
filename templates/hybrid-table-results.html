@@ -13,10 +13,12 @@
       </div>
       {% endfor %}
     </td>
+    {% if show_outcomes %}
     <td class="outcome">
       <img src="icons/outcomes/{{results[color].outcome}}.png"
            title="{{results[color].outcome|title}}">
     </td>
+    {% endif %}
   </tr>
   {% endfor %}
 </table>
