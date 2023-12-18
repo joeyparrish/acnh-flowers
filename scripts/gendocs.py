@@ -35,8 +35,8 @@ def flower_icon_filter(species, color, genes=None):
       seed_class=seed_class, species=species, color=color))
 
 
-def outcome_title_filter(outcome):
-  return outcome.replace('_', ' ')
+def title_filter(outcome):
+  return outcome.replace('-', ' ').title()
 
 
 def is_gene(gene):
@@ -82,7 +82,7 @@ env = jinja2.Environment(
     autoescape=jinja2.select_autoescape())
 env.filters['hybridize'] = hybridize_filter
 env.filters['flower_icon'] = flower_icon_filter
-env.filters['outcome_title'] = outcome_title_filter
+env.filters['title'] = title_filter
 env.filters['load_tab_content'] = load_tab_content_filter
 
 template = env.get_template('index.html')

@@ -12,7 +12,7 @@
       {% for tab, label in tabs.items() %}
       <input class="radiotab" name="tabs" type="radio"
              id="tab-{{tab}}">
-      <label class="label" for="tab-{{tab}}">{{label}}</label>
+      <label class="label" for="tab-{{tab}}">{{tab|title}}</label>
       <div class="panel">
         <h2>{{label}}</h2>
         <div class="content">
