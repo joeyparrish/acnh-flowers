@@ -39,8 +39,17 @@ def outcome_title_filter(outcome):
   return outcome.replace('_', ' ')
 
 
+def is_gene(gene):
+  return gene.isdigit()  # All digits, non-empty
+
+
 @jinja2.pass_environment
 def hybridize_filter(env, species, genes1, genes2, **kwargs):
+  if not is_gene(genes1):
+    genes1 = seeds[species][genes1]
+  if not is_gene(genes2):
+    genes2 = seeds[species][genes2]
+
   results = hybridize(genes1, genes2)
   color1 = phenotypes[species][genes1]
   color2 = phenotypes[species][genes2]
