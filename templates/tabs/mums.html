@@ -1,4 +1,9 @@
-<p>Goal: green mums (w/ pink &amp; purple as bonus)</p>
+<h3>Goal: green mums</h3>
+
+<p>
+As you work toward green mums, you are very likely to get all other hybrids as
+well (pink and purple). So this is the only path you need to follow for mums.
+</p>
 
 {{ 'mum' | hybridize('200', '020',
    yellow='next_stage') }}
@@ -9,12 +14,12 @@
 
 <p>
 Recycling purples into the yellows will accelerate the process by increasing
-the likelihood of green hybrids.  If you get a purple and your plot is full,
+the likelihood of green hybrids. If you get a purple and your plot is full,
 replace a yellow with a purple.
 </p>
 
 <details>
-<summary>Detailed outcomes for recycling purples into the yellows</summary>
+<summary>Detailed outcomes for recycling purples</summary>
 
 {{ 'mum' | hybridize('110', '120',
    yellow='trash', purple='recycle', green='keep') }}
@@ -31,4 +36,17 @@ replace a yellow with a purple.
 
 {{ 'mum' | hybridize('210', '210',
    red='trash', purple='recycle', green='keep') }}
+
+</details>
+
+<details>
+<summary>Green mum self-breeding</summary>
+
+<p>
+You can always breed green mums together to make more.  This is more
+space-efficient than cloning layouts.
+</p>
+
+{{ 'mum' | hybridize('220', '220', green='keep') }}
+
 </details>
