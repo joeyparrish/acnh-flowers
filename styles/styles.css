@@ -1,7 +1,16 @@
 /* https://www.reddit.com/r/AnimalCrossing/comments/gmz7u2/ever_wondered_what_font_they_use_in_new_horizons/ */
 @font-face {
   font-family: 'ACNH';
+  src:  url('FOT-RodinBokutoh Pro M.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ACNH';
   src:  url('FOT-RodinBokutoh Pro EB.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
 }
 
 body {
