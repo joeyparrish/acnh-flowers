@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <title>Joey's ACNH Flower Guide</title>
+    <link rel="stylesheet" href="styles/styles.css">
+  </head>
+  <body>
+
+    <h1>Joey's ACNH Flower Guide For Nerds</h1>
+
+    <div id="tabs">
+      {% for tab, label in tabs.items() %}
+      <input class="radiotab" name="tabs" type="radio"
+             id="tab-{{tab}}">
+      <label class="label" for="tab-{{tab}}">{{label}}</label>
+      <div class="panel">
+        <h2>{{label}}</h2>
+        <div class="content">
+          {{tab|load_tab_content}}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+
+    <script>
+      // When a tab is selected, put the tab name in the URL hash.
+      const inputs = Array.from(
+          document.getElementById('tabs').querySelectorAll('input'));
+      for (const input of inputs) {
+        input.addEventListener('change', () => {
+          location.hash = input.id.replace('tab-', '');
+        });
+      }
+
+      // When the hash changes, pick the matching tab, or fall back to the
+      // first one.
+      function pickTab() {
+        const targetId = 'tab-' + location.hash.substr(1);  // drop #
+        const chosenInput =
+            inputs.find(input => input.id == targetId) || inputs[0];
+        chosenInput.checked = true;
+      }
+
+      window.addEventListener('hashchange', pickTab);
+      pickTab();
+    </script>
+  </body>
+</html>
