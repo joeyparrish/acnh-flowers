@@ -27,6 +27,15 @@ h1 {
   text-align: center;
 }
 
+details > summary {
+  cursor: pointer;
+}
+
+/* A heading inside a zippy description should be inline with the marker. */
+details > summary > * {
+  display: inline;
+}
+
 
 #tabs {
   display: flex;
