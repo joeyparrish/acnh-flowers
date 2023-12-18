@@ -64,16 +64,18 @@ def hybridize_filter(env, species, genes1, genes2, **kwargs):
     grouped_results[color].genes.append((genes, probability))
     grouped_results[color].probability += probability
 
+  show_outcomes = len(kwargs.keys()) > 0
+
   results_table_template = env.get_template('hybrid-table-results.html')
   results_table = markupsafe.Markup(results_table_template.render(
-      results=grouped_results, species=species))
+      results=grouped_results, species=species,
+      show_outcomes=show_outcomes))
 
   hybrid_table_template = env.get_template('hybrid-table.html')
   hybrid_table = markupsafe.Markup(hybrid_table_template.render(
       results_table=results_table, species=species,
       genes1=genes1, color1=color1,
-      genes2=genes2, color2=color2,
-      show_outcomes=(not not kwargs.keys()) ))
+      genes2=genes2, color2=color2))
 
   return hybrid_table
 
