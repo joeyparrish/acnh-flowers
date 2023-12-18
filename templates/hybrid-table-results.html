@@ -14,7 +14,8 @@
       {% endfor %}
     </td>
     <td class="outcome">
-      <img src="icons/outcomes/{{results[color].outcome}}.png">
+      <img src="icons/outcomes/{{results[color].outcome}}.png"
+           title="{{results[color].outcome|outcome_title}}">
     </td>
   </tr>
   {% endfor %}
