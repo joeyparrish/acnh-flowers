@@ -1,52 +1,76 @@
-<h3>Goal: green mums</h3>
-
-<p>
-As you work toward green mums, you are very likely to get all other hybrids as
-well (pink and purple). So this is the only path you need to follow for mums.
-</p>
-
-{{ 'mum' | hybridize('200', '020',
-   yellow='next_stage') }}
-
-{{ 'mum' | hybridize('110', '110',
-   white='trash', yellow='trash', red='trash', purple='recycle',
-   pink='keep', green='keep') }}
-
-<p>
-Recycling purples into the yellows will accelerate the process by increasing
-the likelihood of green hybrids. If you get a purple and your plot is full,
-replace a yellow with a purple.
-</p>
-
 <details>
-<summary>Detailed outcomes for recycling purples</summary>
+  <summary><h3>Goal: green mums</h3></summary>
 
-{{ 'mum' | hybridize('110', '120',
-   yellow='trash', purple='recycle', green='keep') }}
+  <p>
+  As you work toward green mums, you are very likely to get all other hybrids as
+  well (pink and purple). So this is the only path you need to follow for mums.
+  </p>
 
-{{ 'mum' | hybridize('110', '210',
-   yellow='trash', red='trash', purple='recycle',
-   pink='keep', green='keep') }}
+  {{ 'mum' | hybridize('red', 'yellow',
+     yellow='next-stage') }}
 
-{{ 'mum' | hybridize('120', '210',
-   yellow='trash', purple='recycle', green='keep') }}
+  {{ 'mum' | hybridize('110', '110',
+     white='trash', yellow='trash', red='trash', purple='recycle',
+     pink='keep', green='keep') }}
 
-{{ 'mum' | hybridize('120', '120',
-   yellow='trash', purple='recycle', green='keep') }}
+  <p>
+  Recycling purples into the yellows will accelerate the process by increasing
+  the likelihood of green hybrids. If you get a purple and your plot is full,
+  replace a yellow with a purple.
+  </p>
 
-{{ 'mum' | hybridize('210', '210',
-   red='trash', purple='recycle', green='keep') }}
+  <details>
+    <summary>Detailed outcomes for recycling purples</summary>
 
+    {{ 'mum' | hybridize('110', '120',
+       yellow='trash', purple='recycle', green='keep') }}
+
+    {{ 'mum' | hybridize('110', '210',
+       yellow='trash', red='trash', purple='recycle',
+       pink='keep', green='keep') }}
+
+    {{ 'mum' | hybridize('120', '210',
+       yellow='trash', purple='recycle', green='keep') }}
+
+    {{ 'mum' | hybridize('120', '120',
+       yellow='trash', purple='recycle', green='keep') }}
+
+    {{ 'mum' | hybridize('210', '210',
+       red='trash', purple='recycle', green='keep') }}
+  </details>
+
+  <details>
+    <summary>Green mum self-breeding</summary>
+
+    <p>
+    You can always breed green mums together to make more.  This is more
+    space-efficient than cloning layouts.
+    </p>
+
+    {{ 'mum' | hybridize('220', '220', green='keep') }}
+  </details>
 </details>
 
 <details>
-<summary>Green mum self-breeding</summary>
+  <summary><h3>Goal: pink mums</h3></summary>
 
-<p>
-You can always breed green mums together to make more.  This is more
-space-efficient than cloning layouts.
-</p>
+  <p>
+  Pink mums are easy, but if you're also working toward green mums, you can
+  skip this. You will very likely get pink mums while working toward green
+  mums.
+  </p>
 
-{{ 'mum' | hybridize('220', '220', green='keep') }}
+  {{ 'mum' | hybridize('red', 'white', pink='keep') }}
+</details>
 
+<details>
+  <summary><h3>Goal: purple mums</h3></summary>
+
+  <p>
+  Purple mums are easy, but if you're also working toward green mums, you can
+  skip this. You will very likely get pink mums while working toward green
+  mums.
+  </p>
+
+  {{ 'mum' | hybridize('white', 'white', purple='keep') }}
 </details>
