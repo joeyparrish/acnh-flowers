@@ -9,7 +9,20 @@
     <h1>Joey's ACNH Flower Guide For Nerds</h1>
 
     <div id="tabs">
-      {% for tab, label in tabs.items() %}
+      {%
+        for tab, label in {
+          'overview': 'Overview',
+          'cosmos': 'Cosmos',
+          'hyacinths': 'Hyacinths',
+          'lilies': 'Lilies',
+          'mums': 'Mums',
+          'pansies': 'Pansies',
+          'roses': 'Roses',
+          'tulips': 'Tulips',
+          'windflowers': 'Windflowers',
+          'first-gen-hybrids': 'Appendix: All First Generation Hybrids',
+        }.items()
+      %}
       <input class="radiotab" name="tabs" type="radio"
              id="tab-{{tab}}">
       <label class="label" for="tab-{{tab}}">{{tab|title}}</label>

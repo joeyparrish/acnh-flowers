@@ -84,9 +84,4 @@ env.filters['load_tab_content'] = load_tab_content_filter
 
 template = env.get_template('index.html')
 with open('index.html', 'w') as f:
-  f.write(template.render(tabs={
-      'overview': 'Overview',
-      'windflowers': 'Windflowers',
-      'mums': 'Mums',
-      'first-gen-hybrids': 'Appendix: All First Generation Hybrids',
-  }))
+  f.write(template.render())
