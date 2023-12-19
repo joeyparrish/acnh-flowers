@@ -22,6 +22,10 @@ body {
   max-width: 80em;
   margin: auto;
   padding: 2em;
+
+  /* Always show the scroll bar to avoid horizontal shifts when zippies are
+   * opened. */
+  overflow-y: scroll;
 }
 
 h1 {
@@ -73,6 +77,8 @@ details details {
 #tabs .panel {
   display: none;
   width: 100%;
+  /* Don't have prose spread too widely across the page. */
+  max-width: 50em;
 }
 
 #tabs input:checked + .label {
