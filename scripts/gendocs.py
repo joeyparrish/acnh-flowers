@@ -26,7 +26,7 @@ def flower_icon_filter(species, color, genes=None):
   seed_class = 'seed' if is_seed else ''
   template = ''.join([
       '<div class="icon">',
-      '<img src="icons/{species}/{color}.png">',
+      '<img src="icons/{species}/{color}.png" title="{color} {seed_class}">',
       '<img class="overlay {seed_class}">',
       '</img>',
       '</div>',

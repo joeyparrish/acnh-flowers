@@ -138,6 +138,8 @@ table.hybrid div.icon img.overlay {
 table.hybrid div.icon img.overlay.seed {
   visibility: visible;
   content: url(../icons/seed-bag.png);
+  /* Let mouseover for tooltip fall through to the flower image. */
+  pointer-events: none;
 }
 
 table.hybrid-results td.flower {
