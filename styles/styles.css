@@ -41,6 +41,11 @@ details > summary > * {
   display: inline;
 }
 
+/* A nested zippy should be indented. */
+details details {
+  padding: 0 2em;
+}
+
 
 #tabs {
   display: flex;
