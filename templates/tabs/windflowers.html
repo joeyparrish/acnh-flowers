@@ -1,9 +1,78 @@
-{{ 'windflower' | hybridize('white', 'white',
-   white='trash', blue='next-stage') }}
+<p>
+There are three hybrid windflowers: blue, pink, and purple. Pink and purple are
+frequent side-effects of pursuing green, so the green path is probably the only
+one you need to follow if you are trying to breed all colors.
+</p>
 
-{{ 'windflower' | hybridize('red', '002',
-   red='next-stage') }}
+<p>
+Unlike every other flower, windflower seeds come in red, white, and orange
+instead of red, white, and yellow. There are no yellow windflowers.
+</p>
 
-{{ 'windflower' | hybridize('101', '101',
-   red='trash', blue='trash', white='trash',
-   purple='keep') }}
+<details>
+  <summary><h3>Purple Windflowers</h3></summary>
+
+  <p>
+  Start with white windflower seeds to get blue, then mix those with red seeds
+  to get hybrid reds. The hybrid reds then make purples.
+  </p>
+
+  {{ 'windflower' | hybridize('white', 'white',
+     white='trash', blue='next-stage') }}
+
+  {{ 'windflower' | hybridize('red', '002',
+     red='next-stage') }}
+
+  {{ 'windflower' | hybridize('101', '101',
+     red='trash', blue='trash', white='trash',
+     purple='keep') }}
+</details>
+
+<details>
+  <summary><h3>Pink Windflowers</h3></summary>
+
+  <p>
+  Pink windflowers are easy: red x orange = pink.
+  </p>
+
+  {{ 'windflower' | hybridize('red', 'orange', pink='keep') }}
+
+  <details>
+    <summary>Pink windflower self-breeding</summary>
+
+    <p>
+    Pink windflowers bred with each other will make more pink windflowers only
+    about <i>30%</i> of the time. Since the red-orange breeding <i>always</i>
+    produces pink, it is better either to continue breeding those or to rely on
+    cloning layouts to create more pink windflowers.
+    </p>
+
+    {{ 'windflower' | hybridize('110', '110') }}
+  </details>
+</details>
+
+<details>
+  <summary><h3>Blue Windflowers</h3></summary>
+
+  <p>
+  Blue windflowers are easy: white x white = blue. But if you're also working
+  toward purple windflowers, you can skip this. You will always get blue
+  windflowers on the way to purple.
+  </p>
+
+  {{ 'windflower' | hybridize('white', 'white',
+     white='trash', blue='keep') }}
+
+  <details>
+    <summary>Blue windflower self-breeding</summary>
+
+    <p>
+    These <i>particular</i> blue windflowers can always breed together to make
+    more. This is more space-efficient than cloning layouts. Other genotypes of
+    blue may produce other results.
+    </p>
+
+    {{ 'mum' | hybridize('002', '002', purple='keep') }}
+    {{ 'windflower' | hybridize('002', '002') }}
+  </details>
+</details>
