@@ -24,15 +24,9 @@ def load_tab_content_filter(tab):
 def flower_icon_filter(species, color, genes=None):
   is_seed = genes is not None and genes == seeds[species].get(color)
   seed_class = 'seed' if is_seed else ''
-  template = ''.join([
-      '<div class="icon">',
-      '<img src="icons/{species}/{color}.png" title="{color} {seed_class}">',
-      '<img class="overlay {seed_class}">',
-      '</img>',
-      '</div>',
-  ])
-  return markupsafe.Markup(template.format(
-      seed_class=seed_class, species=species, color=color))
+  template = env.get_template('flower-icon.html')
+  return markupsafe.Markup(template.render(
+      species=species, color=color, seed_class=seed_class))
 
 
 def title_filter(outcome):
