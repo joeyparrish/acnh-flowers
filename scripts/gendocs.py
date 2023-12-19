@@ -30,7 +30,7 @@ def flower_icon_filter(species, color, genes=None):
 
 
 def title_filter(outcome):
-  return outcome.replace('-', ' ').title()
+  return outcome.replace('-', ' ').title().strip()
 
 
 def is_gene(gene):
