@@ -9,7 +9,7 @@ one you need to follow if you are trying to breed all colors.
 
   <p>
   Start with red and yellow to get a hybrid yellow, then combine hybrid yellows
-  to get purple, pink, and green.  Recycle purples into the hybrid yellows.
+  to get purple, pink, and green. Recycle purples into the hybrid yellows.
   </p>
 
   {{ 'mum' | hybridize('red', 'yellow',
@@ -21,8 +21,9 @@ one you need to follow if you are trying to breed all colors.
 
   <p>
   Recycling purples into the yellows will accelerate the process by increasing
-  the likelihood of green hybrids. If you get a purple and your plot is full,
-  replace a yellow with a purple.
+  the likelihood of green hybrids from 6.25% to 12.5% or even 25% depending on
+  the genes. If you get a purple and your plot is full, replace a yellow with a
+  purple.
   </p>
 
   <details>
@@ -49,7 +50,7 @@ one you need to follow if you are trying to breed all colors.
     <summary>Green mum self-breeding</summary>
 
     <p>
-    You can always breed green mums together to make more.  This is more
+    You can always breed green mums together to make more. This is more
     space-efficient than cloning layouts.
     </p>
 
@@ -61,22 +62,52 @@ one you need to follow if you are trying to breed all colors.
   <summary><h3>Pink Mums</h3></summary>
 
   <p>
-  Pink mums are easy, but if you're also working toward green mums, you can
-  skip this. You will very likely get pink mums while working toward green
-  mums.
+  Pink mums are easy: red x white = pink. But if you're also working toward
+  green mums, you can skip this. You will very likely get pink mums while
+  working toward green mums.
   </p>
 
   {{ 'mum' | hybridize('red', 'white', pink='keep') }}
+
+  <details>
+    <summary>Pink mum self-breeding</summary>
+
+    <p>
+    Pink mums bred with each other will make more pink mums only <i>half</i>
+    the time. Since the red-white breeding <i>always</i> produces pink, it is
+    better either to continue breeding those or to rely on cloning layouts to
+    create more pink mums.
+    </p>
+
+    {{ 'mum' | hybridize('100', '100',
+       red='trash', white='trash', pink='keep') }}
+    {{ 'mum' | hybridize('100', '101',
+       red='trash', white='trash', pink='keep') }}
+    {{ 'mum' | hybridize('101', '101',
+       red='trash', white='trash', purple='trash', pink='keep') }}
+  </details>
 </details>
 
 <details>
   <summary><h3>Purple Mums</h3></summary>
 
   <p>
-  Purple mums are easy, but if you're also working toward green mums, you can
-  skip this. You will very likely get pink mums while working toward green
-  mums.
+  Purple mums are easy: white x white = purple. But if you're also working
+  toward green mums, you can skip this. You will very likely get pink mums
+  while working toward green mums.
   </p>
 
   {{ 'mum' | hybridize('white', 'white', purple='keep') }}
+
+  <details>
+    <summary>Purple mum self-breeding</summary>
+
+    <p>
+    These <i>particular</i> purple mums can always breed together to make more.
+    This is more space-efficient than cloning layouts. Other genotypes of
+    purple (as found above in the green mum path) may produce other results.
+    </p>
+
+    {{ 'mum' | hybridize('002', '002', purple='keep') }}
+  </details>
 </details>
