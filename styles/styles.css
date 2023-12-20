@@ -138,7 +138,7 @@ table.hybrid-results tr.possibility {
   border: solid 0.2em green;
 }
 
-table.hybrid-results td.outcome img {
+.outcome img {
   width: 3em;
   height: 3em;
 }
@@ -188,13 +188,17 @@ img.seed-example {
   content: url(../icons/seed-bag.png);
 }
 
+table.legend td {
+  height: 4em;
+}
+
 table.legend td:nth-child(1) {
   text-align: center;
   padding: 0 1em;
 }
 
 table.legend td:nth-child(2) {
-  padding-left: 2em;
+  padding: 0 1em;
 }
 
 
@@ -217,7 +221,7 @@ table.legend td:nth-child(2) {
     background: darkgray;
   }
 
-  table.hybrid-results td.outcome img {
+  .outcome img {
     filter: invert(1);
   }
 
