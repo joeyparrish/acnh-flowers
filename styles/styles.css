@@ -50,6 +50,13 @@ details details {
   padding: 0 2em;
 }
 
+tt {
+  font-family: 'ACNH';
+  background-color: lightgray;
+  display: inline-block;
+  padding: 0 0.15em;
+}
+
 
 #tabs {
   display: flex;
@@ -58,8 +65,7 @@ details details {
 }
 
 #tabs .radiotab {
-  position: absolute;
-  opacity: 0;
+  display: none;
 }
 
 #tabs .label {
@@ -68,6 +74,7 @@ details details {
   display: inline-block;
   padding: 1em;
   border: solid 1px black;
+  font-weight: bold;
 }
 
 #tabs .label:active {
@@ -91,14 +98,14 @@ details details {
 }
 
 
-table.hybrid {
+table.legend, table.hybrid {
   border: solid 1em green;
   border-radius: 1em;
   margin: auto;
   margin-bottom: 1em;
 }
 
-table.hybrid td.flower img {
+.flower img {
   width: 4em;
   height: 4em;
 }
@@ -108,7 +115,7 @@ table.hybrid-results td.flower img {
   height: 2em;
 }
 
-table.hybrid div.genes {
+div.genes {
   border: solid 0.2em green;
   border-radius: 1em;
   text-align: center;
@@ -136,11 +143,11 @@ table.hybrid-results td.outcome img {
   height: 3em;
 }
 
-table.hybrid div.icon {
+div.icon {
   position: relative;
 }
 
-table.hybrid div.icon img.overlay {  
+div.icon img.overlay {
   width: 1.5em;
   height: 1.5em;
 
@@ -173,6 +180,24 @@ table.hybrid-results td.outcome {
   text-align: center;
 }
 
+
+img.seed-example {
+  width: 2em;
+  height: 2em;
+  vertical-align: top;
+  content: url(../icons/seed-bag.png);
+}
+
+table.legend td:nth-child(1) {
+  text-align: center;
+  padding: 0 1em;
+}
+
+table.legend td:nth-child(2) {
+  padding-left: 2em;
+}
+
+
 @media (prefers-color-scheme: dark) {
   body {
     background: black;
@@ -194,6 +219,10 @@ table.hybrid-results td.outcome {
 
   table.hybrid-results td.outcome img {
     filter: invert(1);
+  }
+
+  tt {
+    background-color: dimgray;
   }
 }
 
