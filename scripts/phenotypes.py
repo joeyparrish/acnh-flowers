@@ -149,7 +149,7 @@ phenotypes = {
 seeds = {
   'rose': {
     'white': '0010',
-    'yellow': '0020',
+    'yellow': '0200',
     'red': '2001',
   },
   'tulip': {
