@@ -81,20 +81,24 @@ tt {
   /* FIXME: fix keyboard navigation and styles */
 }
 
-#tabs .panel {
-  display: none;
-  width: 100%;
-  /* Don't have prose spread too widely across the page. */
-  max-width: 50em;
-}
-
 #tabs input:checked + .label {
   background: white;
 }
 
-#tabs input:checked + .label + .panel {
+
+#panels {
+  width: 100%;
+  /* Don't have prose spread too widely across the page. */
+  max-width: 50em;
+  margin: auto;
+}
+
+#panels .tab-panel {
+  display: none;
+}
+
+#panels .tab-panel.shown {
   display: block;
-  order: 99;
 }
 
 
