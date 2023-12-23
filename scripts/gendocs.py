@@ -29,6 +29,11 @@ def flower_icon_filter(species, color, genes=None):
       species=species, color=color, seed_class=seed_class))
 
 
+def flower_pass_filter(species, color):
+  template = env.get_template('flower-pass.html')
+  return markupsafe.Markup(template.render(species=species, color=color))
+
+
 def title_filter(outcome):
   return outcome.replace('-', ' ').title().strip()
 
@@ -74,11 +79,32 @@ def hybridize_filter(env, species, genes1, genes2, **kwargs):
   return hybrid_table
 
 
+@jinja2.pass_environment
+def test_filter(env, species, possible_inputs, genes2, max_tries, **kwargs):
+  if not is_gene(genes2):
+    genes2 = seeds[species][genes2]
+
+  color1 = phenotypes[species][possible_inputs[0]]
+  color2 = phenotypes[species][genes2]
+
+  test_table_template = env.get_template('test-table.html')
+  test_table = markupsafe.Markup(test_table_template.render(
+      species=species,
+      possible_inputs=possible_inputs, color1=color1,
+      genes2=genes2, color2=color2,
+      max_tries=max_tries,
+      outcomes=kwargs))
+
+  return test_table
+
+
 env = jinja2.Environment(
     loader=jinja2.FileSystemLoader('templates'),
     autoescape=jinja2.select_autoescape())
+env.filters['test'] = test_filter
 env.filters['hybridize'] = hybridize_filter
 env.filters['flower_icon'] = flower_icon_filter
+env.filters['flower_pass'] = flower_pass_filter
 env.filters['title'] = title_filter
 env.filters['load_tab_content'] = load_tab_content_filter
 

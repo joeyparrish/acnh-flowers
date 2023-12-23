@@ -15,8 +15,13 @@
     </td>
     {% if show_outcomes %}
     <td class="outcome">
-      <img src="icons/outcomes/{{results[color].outcome}}.png"
+      {% if results[color].outcome.startswith('pass-') %}
+      {{ species|flower_pass(results[color].outcome.replace('pass-', '')) }}
+      {% else %}
+      <img class="outcome"
+           src="icons/outcomes/{{results[color].outcome}}.png"
            title="{{results[color].outcome|title}}">
+      {% endif %}
     </td>
     {% endif %}
   </tr>

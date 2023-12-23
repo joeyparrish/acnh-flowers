@@ -1,0 +1,28 @@
+<table class="hybrid">
+  <tr>
+    <td class="flower">
+      {{species|flower_icon(color1)}}
+      <div class="genes">
+        {% for genes1 in possible_inputs %}
+          <div>{{genes1}}</div>
+        {% endfor %}
+      </div>
+    </td>
+    <td class="symbol">&#8263;</td>
+    <td class="symbol">&times;</td>
+    <td class="flower">
+      {{species|flower_icon(color2, genes2)}}
+      <div class="genes">{{genes2}}</div>
+    </td>
+  </tr>
+  <tr>
+    <td colspan=4 class="max-tries">Trash after {{max_tries}} failures</td>
+  </tr>
+  {% for genes1 in possible_inputs %}
+  <tr>
+    <td colspan=4 class="test-possibility">
+      {{species|hybridize(genes1, genes2, **outcomes)}}
+    </td>
+  </tr>
+  {% endfor %}
+</table>

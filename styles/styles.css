@@ -52,7 +52,7 @@ details details {
 
 tt {
   font-family: 'ACNH';
-  background-color: lightgray;
+  background-color: #eee;
   display: inline-block;
   padding: 0 0.15em;
 }
@@ -102,11 +102,9 @@ tt {
 }
 
 
-table.legend, table.hybrid {
-  border: solid 1em green;
-  border-radius: 1em;
-  margin: auto;
-  margin-bottom: 1em;
+.flower {
+  text-align: center;
+  width: 4em;
 }
 
 .flower img {
@@ -114,7 +112,20 @@ table.legend, table.hybrid {
   height: 4em;
 }
 
-table.hybrid-results td.flower img {
+table.legend, table.hybrid {
+  border: solid 1em green;
+  border-radius: 1em;
+  margin: auto;
+  margin-bottom: 1em;
+}
+
+table.hybrid table.hybrid {
+  border: none;
+  margin-top: 1em;
+  margin-bottom: 0;
+}
+
+table.hybrid-results .flower img {
   width: 2em;
   height: 2em;
 }
@@ -142,7 +153,7 @@ table.hybrid-results tr.possibility {
   border: solid 0.2em green;
 }
 
-.outcome img {
+.outcome img.outcome {
   width: 3em;
   height: 3em;
 }
@@ -151,7 +162,7 @@ div.icon {
   position: relative;
 }
 
-div.icon img.overlay {
+div.icon .overlay {
   width: 1.5em;
   height: 1.5em;
 
@@ -162,16 +173,17 @@ div.icon img.overlay {
   visibility: hidden;
 }
 
-table.hybrid div.icon img.overlay.seed {
+div.icon img.overlay.seed {
   visibility: visible;
   content: url(../icons/seed-bag.png);
   /* Let mouseover for tooltip fall through to the flower image. */
   pointer-events: none;
 }
 
-table.hybrid-results td.flower {
-  width: 4em;
-  text-align: center;
+div.icon .overlay.pass {
+  visibility: visible;
+  /* Let mouseover for tooltip fall through to the flower image. */
+  pointer-events: none;
 }
 
 table.hybrid-results td.genes {
@@ -181,6 +193,11 @@ table.hybrid-results td.genes {
 
 table.hybrid-results td.outcome {
   width: 4em;
+  text-align: center;
+}
+
+td.max-tries {
+  font-weight: bold;
   text-align: center;
 }
 
@@ -225,12 +242,12 @@ table.legend td:nth-child(2) {
     background: darkgray;
   }
 
-  .outcome img {
+  .outcome img.outcome {
     filter: invert(1);
   }
 
   tt {
-    background-color: dimgray;
+    background-color: #222;
   }
 }
 

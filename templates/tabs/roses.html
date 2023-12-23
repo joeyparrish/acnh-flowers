@@ -1,0 +1,104 @@
+<p>
+There are more rose colors than any other flower. There are also more complex
+genes for roses than any other flower. Blue roses are the most rare.
+</p>
+
+<details>
+  <summary><h3>Blue Roses</h3></summary>
+
+  <p>
+  Blue roses are by far the most rare phenotype (1 genotype out of 81), so the
+  breeding paths to blue roses are long, numerous, and varied. If you want to
+  read an excellent and detailed write-up on blue roses, the various
+  recommended methods, and their trade-offs, refer to
+  <a href="https://yuexr.github.io/acnh/bluerose.html">Yue's Blue Rose Guide</a>.
+  </p>
+
+  <p>
+  This guide uses the Folklore method, which has a small chance of blue roses
+  (6.25%) in the second-to-last stage, plus the highest chance of a blue rose
+  in the final stage (25%). This allows you to keep breeding that final plot to
+  produce more blue roses instead of relying on cloning to scale up blue rose
+  production.
+  </p>
+
+  <p>
+  This method involves six stages, each in their own zippy for clarity.
+  </p>
+
+  <details>
+    <summary><h4>Stage 1</h4></summary>
+
+    {{ 'rose' | hybridize('white', 'yellow',
+       yellow='trash', white='next-stage') }}
+
+    {{ 'rose' | hybridize('white', 'white',
+       white='trash', purple='next-stage') }}
+
+    {{ 'rose' | hybridize('red', 'yellow',
+       yellow='trash', orange='future-stage') }}
+  </details>
+
+  <details>
+    <summary><h4>Stage 2</h4></summary>
+
+    {{ 'rose' | hybridize('0110', '0020',
+       white='trash', purple='next-stage') }}
+  </details>
+
+  <details>
+    <summary><h4>Stage 3 (Testing)</h4></summary>
+
+    <p>
+    Here we need to test our purple roses from stage 2. Half of them are
+    <tt>0020</tt>, which won't help, and half of them are <tt>0120</tt>, which
+    we want to use in the next stage. We test them through breeding to find out
+    which genes they have. This requires a specific testing layout so that you
+    always know which output came from which pair.
+    </p>
+
+    <p>
+    To differentiate, we breed the purples with seed yellows. If we get a
+    yellow offspring, the purple was <tt>0120</tt>, and it moves to the next
+    stage. If it breeds white more than 4 times, we assume it was <tt>0020</tt>
+    and throw the purple away.
+    </p>
+
+    {{ 'rose' | test(['0020', '0120'], 'yellow', 5,
+       white='trash', yellow='pass-purple') }}
+  </details>
+
+  <details>
+    <summary><h4>Stage 4</h4></summary>
+
+    {{ 'rose' | hybridize('0120', '1100',
+       white='trash', red='trash', yellow='trash',
+       orange='next-stage') }}
+  </details>
+
+  <details>
+    <summary><h4>Stage 5</h4></summary>
+
+    {{ 'rose' | hybridize('1210', '1210',
+       white='trash', orange='trash', yellow='trash',
+       blue='keep', red='next-stage') }}
+  </details>
+
+  <details>
+    <summary><h4>Stage 6</h4></summary>
+
+    {{ 'rose' | hybridize('1220', '1220',
+       white='trash', red='recycle', blue='keep') }}
+  </details>
+
+  <details>
+    <summary>Blue rose self-breeding</summary>
+
+    <p>
+    You can always breed blue roses together to make more. This is more
+    space-efficient than cloning layouts.
+    </p>
+
+    {{ 'rose' | hybridize('2220', '2220', blue='keep') }}
+  </details>
+</details>
