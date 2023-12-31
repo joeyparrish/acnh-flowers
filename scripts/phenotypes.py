@@ -65,7 +65,7 @@ tulip = expand3(
 
 pansy = expand3(
   'wwu',
-  'yyb',
+  'yyu',
   'yyy',
   'rru',
   'ooo',
