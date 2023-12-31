@@ -1,15 +1,17 @@
-<table class="hybrid-results">
+<table class="hybrid-results {{ extra_classes }}">
   {% for color in results.keys() %}
   <tr class="possibility">
     <td class="flower">
       {{species|flower_icon(color)}}
-      <div class="probability">{{results[color].probability * 100}}%</div>
+      <div class="probability">{{(results[color].probability * 100) | round(2)}}%</div>
     </td>
     <td class="genes">
       {% for genes, probability in results[color].genes %}
       <div class="genotype">
         <div class="genes">{{genes}}</div>
-        <div class="probability">{{probability * 100}}%</div>
+        {% if probability %}
+        <div class="probability">{{(probability * 100) | round(2)}}%</div>
+        {% endif %}
       </div>
       {% endfor %}
     </td>

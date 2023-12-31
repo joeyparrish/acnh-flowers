@@ -191,6 +191,14 @@ table.hybrid-results td.genes {
   text-align: center;
 }
 
+table.hybrid-results.wide td.genes {
+  width: 22em;
+}
+
+table.hybrid-results.wide div.genotype {
+  display: inline-block;
+}
+
 table.hybrid-results td.outcome {
   width: 4em;
   text-align: center;

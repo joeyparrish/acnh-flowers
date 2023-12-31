@@ -68,7 +68,7 @@ def hybridize_filter(env, species, genes1, genes2, **kwargs):
   results_table_template = env.get_template('hybrid-table-results.html')
   results_table = markupsafe.Markup(results_table_template.render(
       results=grouped_results, species=species,
-      show_outcomes=show_outcomes))
+      show_outcomes=show_outcomes, extra_classes=''))
 
   hybrid_table_template = env.get_template('hybrid-table.html')
   hybrid_table = markupsafe.Markup(hybrid_table_template.render(
@@ -98,11 +98,31 @@ def test_filter(env, species, possible_inputs, genes2, max_tries, **kwargs):
   return test_table
 
 
+@jinja2.pass_environment
+def phenotypes_filter(env, species):
+  num_genotypes = len(phenotypes[species].keys())
+
+  grouped_results = {}
+  for genes, color in phenotypes[species].items():
+    if color not in grouped_results:
+      grouped_results[color] = GroupedResults()
+    grouped_results[color].probability += 1 / num_genotypes
+    grouped_results[color].genes.append((genes, 0))
+
+  results_table_template = env.get_template('hybrid-table-results.html')
+  results_table = markupsafe.Markup(results_table_template.render(
+      results=grouped_results, species=species,
+      show_outcomes=False, extra_classes='wide'))
+
+  return results_table
+
+
 env = jinja2.Environment(
     loader=jinja2.FileSystemLoader('templates'),
     autoescape=jinja2.select_autoescape())
-env.filters['test'] = test_filter
 env.filters['hybridize'] = hybridize_filter
+env.filters['test'] = test_filter
+env.filters['phenotypes'] = phenotypes_filter
 env.filters['flower_icon'] = flower_icon_filter
 env.filters['flower_pass'] = flower_pass_filter
 env.filters['title'] = title_filter
