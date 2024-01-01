@@ -3,6 +3,18 @@ There are more rose colors than any other flower. There are also more complex
 genes for roses than any other flower. Blue roses are the most rare.
 </p>
 
+<p>
+There are five hybrid roses: blue, purple, pink, orange, and black.
+Purple and orange roses are a side effect of pursuing blue, and pink roses are
+a frequent side effect of pursuing black. So the only unique paths you need to
+follow are blue and black.
+</p>
+
+<p>
+Finally, there is a gold rose, which is outside the normal gene system. See the
+gold rose section for details.
+</p>
+
 <details>
   <summary><h3>Blue Roses</h3></summary>
 
@@ -101,4 +113,73 @@ genes for roses than any other flower. Blue roses are the most rare.
 
     {{ 'rose' | hybridize('2220', '2220', blue='keep') }}
   </details>
+</details>
+
+<details>
+  <summary><h3>Purple Roses</h3></summary>
+
+  <p>
+  Purple roses are easy: white &times; white = purple (25% of the time). But if
+  you're also working toward blue roses, you can skip this. You will produce
+  purple roses while working toward blue roses.
+  </p>
+
+  {{ 'rose' | hybridize('white', 'white',
+     white='trash', purple='keep') }}
+</details>
+
+<details>
+  <summary><h3>Pink Roses</h3></summary>
+
+  <p>
+  Pink roses are easy: white &times; red = pink (50% of the time). You are also
+  likely to run into pink roses while working toward black roses.
+  </p>
+
+  {{ 'rose' | hybridize('white', 'red',
+     red='trash', pink='keep') }}
+</details>
+
+<details>
+  <summary><h3>Orange Roses</h3></summary>
+
+  <p>
+  Orange roses are easy: red &times; yellow = orange (50% of the time). But if
+  you're also working toward blue roses, you can skip this. You will produce
+  orange roses while working toward blue roses.
+  </p>
+
+  {{ 'rose' | hybridize('red', 'yellow',
+     yellow='trash', orange='keep') }}
+</details>
+
+<details>
+  <summary><h3>Black Roses</h3></summary>
+
+  <p>
+  Black roses are easy: red &times; red = black (25% of the time). You are also
+  likely to produce pink roses (25% of the time), so you can work on both black
+  and pink at once.
+  </p>
+
+  {{ 'rose' | hybridize('red', 'red',
+     red='trash', black='keep', pink='keep') }}
+</details>
+
+<details>
+  <summary><h3>Gold Roses</h3></summary>
+
+  <p>
+  Gold roses are special. They are clones of black roses that have been watered
+  with a golden watering can. A golden watering can requires a 5-star island
+  evaluation, after which you can get the recipe from Isabelle in Resident
+  Services.
+  </p>
+
+  <p>
+  Gold roses are not a particular genotype, but black roses born from other
+  black roses with a certain flag set by the gold watering can. The details of
+  producing gold roses is best captured by
+  <a href="https://yuexr.github.io/acnh/garden.html#goldrose">Yue's Gold Rose Guide</a>.
+  </p>
 </details>
