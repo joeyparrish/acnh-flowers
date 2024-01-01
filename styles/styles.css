@@ -72,7 +72,6 @@ tt {
   background: lightgray;
   cursor: pointer;
   display: inline-block;
-  padding: 1em;
   border: solid 1px black;
   font-weight: bold;
 }
@@ -85,6 +84,14 @@ tt {
   background: white;
 }
 
+#tabs .label a, #tabs .label a:visited {
+  /* Make these not look like anchors, but they will be clickable and control-
+     clickable (open in new tab). */
+  color: inherit;
+  text-decoration: none;
+  display: block;
+  padding: 1em;
+}
 
 #panels {
   width: 100%;
