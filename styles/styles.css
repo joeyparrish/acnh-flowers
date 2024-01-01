@@ -76,10 +76,6 @@ tt {
   font-weight: bold;
 }
 
-#tabs .label:active {
-  /* FIXME: fix keyboard navigation and styles */
-}
-
 #tabs input:checked + .label {
   background: white;
 }
@@ -91,6 +87,13 @@ tt {
   text-decoration: none;
   display: block;
   padding: 1em;
+}
+
+#tabs .label a:focus-visible {
+  outline: 3px solid darkblue;
+  /* Raise it (really, the outline) above the neighboring elements. */
+  position: relative;
+  z-index: 99;
 }
 
 #panels {
@@ -255,6 +258,10 @@ table.legend td:nth-child(2) {
 
   #tabs input:checked + .label {
     background: darkgray;
+  }
+
+  #tabs .label a:focus-visible {
+    outline-color: darkred;
   }
 
   .outcome img.outcome {
