@@ -154,6 +154,7 @@ div.genes {
   border-radius: 1em;
   text-align: center;
   font-weight: bold;
+  position: relative;
 }
 
 table.hybrid td.symbol {
@@ -181,7 +182,7 @@ div.icon {
   position: relative;
 }
 
-div.icon .overlay {
+.overlay {
   width: 1.5em;
   height: 1.5em;
 
@@ -192,14 +193,19 @@ div.icon .overlay {
   visibility: hidden;
 }
 
-div.icon img.overlay.seed {
+.genes .overlay {
+  bottom: -0.7em;
+  right: -0.7em;
+}
+
+img.overlay.seed {
   visibility: visible;
   content: url(../icons/seed-bag.png);
   /* Let mouseover for tooltip fall through to the flower image. */
   pointer-events: none;
 }
 
-div.icon .overlay.pass {
+.overlay.pass {
   visibility: visible;
   /* Let mouseover for tooltip fall through to the flower image. */
   pointer-events: none;

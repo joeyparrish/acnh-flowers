@@ -103,15 +103,17 @@ def phenotypes_filter(env, species):
   num_genotypes = len(phenotypes[species].keys())
 
   grouped_results = {}
+  is_seed = {}
   for genes, color in phenotypes[species].items():
     if color not in grouped_results:
       grouped_results[color] = GroupedResults()
     grouped_results[color].probability += 1 / num_genotypes
     grouped_results[color].genes.append(genes)
+    is_seed[genes] = (seeds[species].get(color) == genes)
 
   phenotypes_table_template = env.get_template('phenotypes.html')
   phenotypes_table = markupsafe.Markup(phenotypes_table_template.render(
-      results=grouped_results, species=species,
+      results=grouped_results, species=species, is_seed=is_seed,
       show_outcomes=False, extra_classes='wide'))
 
   return phenotypes_table

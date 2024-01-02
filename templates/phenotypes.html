@@ -9,7 +9,10 @@
       <td class="genes">
         {% for genes in results[color].genes %}
         <div class="genotype">
-          <div class="genes">{{genes}}</div>
+          <div class="genes">
+            {{genes}}
+            <img class="overlay {{ 'seed' if is_seed[genes] else '' }}">
+          </div>
         </div>
         {% endfor %}
       </td>
