@@ -126,6 +126,18 @@ gold rose section for details.
 
   {{ 'rose' | hybridize('white', 'white',
      white='trash', purple='keep') }}
+
+  <details>
+    <summary>Purple rose self-breeding</summary>
+
+    <p>
+    These <i>particular</i> purple roses can always breed together to make
+    more. This is more space-efficient than cloning layouts. Other genotypes of
+    purple may produce other results.
+    </p>
+
+    {{ 'rose' | hybridize('2220', '2220', blue='keep') }}
+  </details>
 </details>
 
 <details>
@@ -138,6 +150,21 @@ gold rose section for details.
 
   {{ 'rose' | hybridize('white', 'red',
      red='trash', pink='keep') }}
+
+  <details>
+    <summary>Pink rose self-breeding</summary>
+
+    <p>
+    Pink roses bred with each other will make more pink roses only
+    about <i>30%</i> of the time. Since the red-white breeding produces pink
+    <i>50%</i> of the time, it is better either to continue breeding those or
+    to rely on cloning layouts to create more pink roses.
+    </p>
+
+    {{ 'rose' | hybridize('1001', '1001') }}
+    {{ 'rose' | hybridize('1001', '1011') }}
+    {{ 'rose' | hybridize('1011', '1011') }}
+  </details>
 </details>
 
 <details>
@@ -151,6 +178,45 @@ gold rose section for details.
 
   {{ 'rose' | hybridize('red', 'yellow',
      yellow='trash', orange='keep') }}
+
+  <details>
+    <summary>Orange rose self-breeding</summary>
+
+    <p>
+    These <i>particular</i> orange roses bred with each other will make more
+    orange roses about <i>56%</i> of the time. Since the red-yellow breeding
+    produces orange <i>50%</i> of the time, self-breeding can be more
+    space-efficient than cloning layouts.
+    </p>
+
+    <p>
+    Furthermore, recycling the orange offspring of these <i>particular</i>
+    oranges can accelerate the orange self-breeding process.  The majority of
+    orange offspring have genes that will further increase the odds of more
+    orange offspring.
+    </p>
+
+    {{ 'rose' | hybridize('1100', '1100',
+       white='trash', yellow='trash', red='trash', black='trash',
+       orange='recycle') }}
+
+    <details>
+      <summary>Detailed outcomes for recycling oranges</summary>
+
+      {{ 'rose' | hybridize('1100', '1200') }}
+      {{ 'rose' | hybridize('1100', '2100') }}
+      {{ 'rose' | hybridize('1100', '2200') }}
+
+      {{ 'rose' | hybridize('1200', '1200') }}
+      {{ 'rose' | hybridize('1200', '2100') }}
+      {{ 'rose' | hybridize('1200', '2200') }}
+
+      {{ 'rose' | hybridize('2100', '2100') }}
+      {{ 'rose' | hybridize('2100', '2200') }}
+
+      {{ 'rose' | hybridize('2200', '2200') }}
+    </details>
+  </details>
 </details>
 
 <details>
@@ -164,6 +230,18 @@ gold rose section for details.
 
   {{ 'rose' | hybridize('red', 'red',
      red='trash', black='keep', pink='keep') }}
+
+  <details>
+    <summary>Black rose self-breeding</summary>
+
+    <p>
+    These <i>particular</i> black roses can always breed together to make
+    more. This is more space-efficient than cloning layouts. Other genotypes of
+    black may produce other results.
+    </p>
+
+    {{ 'rose' | hybridize('2000', '2000') }}
+  </details>
 </details>
 
 <details>
