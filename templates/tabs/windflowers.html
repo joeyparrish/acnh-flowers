@@ -26,6 +26,17 @@ Unlike every other flower, windflower seeds come in red, white, and
   {{ 'windflower' | hybridize('101', '101',
      red='trash', blue='trash', white='trash',
      purple='keep') }}
+
+  <details>
+    <summary>Purple windflower self-breeding</summary>
+
+    <p>
+    You can always breed purple windflowers together to make more. This is more
+    space-efficient than cloning layouts.
+    </p>
+
+    {{ 'windflower' | hybridize('202', '202') }}
+  </details>
 </details>
 
 <details>
@@ -55,9 +66,9 @@ Unlike every other flower, windflower seeds come in red, white, and
   <summary><h3>Blue Windflowers</h3></summary>
 
   <p>
-  Blue windflowers are easy: white &times; white = blue. But if you're also
-  working toward purple windflowers, you can skip this. You will always get
-  blue windflowers on the way to purple.
+  Blue windflowers are easy: white &times; white = blue (25% of the time). But
+  if you're also working toward purple windflowers, you can skip this. You will
+  always get blue windflowers on the way to purple.
   </p>
 
   {{ 'windflower' | hybridize('white', 'white',
