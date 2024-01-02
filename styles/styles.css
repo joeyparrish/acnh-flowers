@@ -126,11 +126,15 @@ tt {
   height: 4em;
 }
 
-table.legend, table.hybrid {
+table.legend, table.hybrid, div.phenotypes {
   border: solid 1em green;
   border-radius: 1em;
   margin: auto;
   margin-bottom: 1em;
+}
+
+div.phenotypes {
+  width: fit-content;
 }
 
 table.hybrid table.hybrid {
@@ -139,7 +143,8 @@ table.hybrid table.hybrid {
   margin-bottom: 0;
 }
 
-table.hybrid-results .flower img {
+table.hybrid-results .flower img,
+table.phenotypes .flower img {
   width: 2em;
   height: 2em;
 }
@@ -159,11 +164,11 @@ table.hybrid div.probability {
   font-size: 75%;
 }
 
-table.hybrid-results {
+table.hybrid-results, table.phenotypes {
   border-collapse: collapse;
 }
 
-table.hybrid-results tr.possibility {
+tr.possibility {
   border: solid 0.2em green;
 }
 
@@ -205,11 +210,12 @@ table.hybrid-results td.genes {
   text-align: center;
 }
 
-table.hybrid-results.wide td.genes {
+table.phenotypes td.genes {
   width: 22em;
+  text-align: center;
 }
 
-table.hybrid-results.wide div.genotype {
+table.phenotypes div.genotype {
   display: inline-block;
 }
 

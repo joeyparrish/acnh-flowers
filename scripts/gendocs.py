@@ -107,14 +107,14 @@ def phenotypes_filter(env, species):
     if color not in grouped_results:
       grouped_results[color] = GroupedResults()
     grouped_results[color].probability += 1 / num_genotypes
-    grouped_results[color].genes.append((genes, 0))
+    grouped_results[color].genes.append(genes)
 
-  results_table_template = env.get_template('hybrid-table-results.html')
-  results_table = markupsafe.Markup(results_table_template.render(
+  phenotypes_table_template = env.get_template('phenotypes.html')
+  phenotypes_table = markupsafe.Markup(phenotypes_table_template.render(
       results=grouped_results, species=species,
       show_outcomes=False, extra_classes='wide'))
 
-  return results_table
+  return phenotypes_table
 
 
 env = jinja2.Environment(

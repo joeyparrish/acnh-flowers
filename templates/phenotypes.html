@@ -1,0 +1,30 @@
+<div class="phenotypes">
+  <table class="phenotypes">
+    {% for color in results.keys() %}
+    <tr class="possibility">
+      <td class="flower">
+        {{species|flower_icon(color)}}
+        <div class="probability">{{(results[color].probability * 100) | round(2)}}%</div>
+      </td>
+      <td class="genes">
+        {% for genes in results[color].genes %}
+        <div class="genotype">
+          <div class="genes">{{genes}}</div>
+        </div>
+        {% endfor %}
+      </td>
+      {% if show_outcomes %}
+      <td class="outcome">
+        {% if results[color].outcome.startswith('pass-') %}
+        {{ species|flower_pass(results[color].outcome.replace('pass-', '')) }}
+        {% else %}
+        <img class="outcome"
+             src="icons/outcomes/{{results[color].outcome}}.png"
+             title="{{results[color].outcome|title}}">
+        {% endif %}
+      </td>
+      {% endif %}
+    </tr>
+    {% endfor %}
+  </table>
+</div>
