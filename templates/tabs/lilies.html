@@ -1,0 +1,98 @@
+<p>
+There are three hybrid lilies: black, pink, and orange. Pink is frequently
+a side effect of working on black.
+</p>
+
+<details>
+  <summary><h3>Black Lilies</h3></summary>
+
+  <p>
+  Black lilies are easy: red &times; red = black (25% of the time). You are
+  just as likely to get pink while working toward black, so you might as well
+  do both at once if you want every color.
+  </p>
+
+  {{ 'lily' | hybridize('red', 'red',
+     red='trash',
+     pink='keep', black='keep') }}
+
+  <details>
+    <summary>Black lily self-breeding</summary>
+
+    <p>
+    These <i>particular</i> black lilies can always breed together to make
+    more. This is more space-efficient than cloning layouts. Other genotypes of
+    black may produce other results.
+    </p>
+
+    {{ 'lily' | hybridize('200', '200', black='keep') }}
+  </details>
+</details>
+
+<details>
+  <summary><h3>Pink Lilies</h3></summary>
+
+  <p>
+  Pink lilies are easy: red &times; white = pink (50% of the time). But if
+  you're also working toward black lilies, you can skip this. You will very
+  likely get pink lilies while working toward black lilies.
+  </p>
+
+  {{ 'lily' | hybridize('red', 'white',
+     white='trash',
+     pink='keep') }}
+
+  <details>
+    <summary>Pink lily self-breeding</summary>
+
+    <p>
+    Pink lilies bred with each other will make more pink lilies only
+    <i>31.25%</i> of the time. Since the red-white breeding produces pink
+    <i>50%</i> of the time, it is better either to continue breeding those or
+    to rely on cloning layouts to create more pink lilies.
+    </p>
+
+    {{ 'lily' | hybridize('101', '101',
+       red='trash', white='trash', black='trash',
+       pink='keep') }}
+  </details>
+</details>
+
+<details>
+  <summary><h3>Orange Lilies</h3></summary>
+
+  <p>
+  Orange lilies are easy: red &times; yellow = orange (50% of the time).
+  </p>
+
+  {{ 'lily' | hybridize('red', 'yellow',
+     yellow='trash', orange='keep') }}
+
+  <details>
+    <summary>Orange lily self-breeding</summary>
+
+    <p>
+    Orange lilies bred with each other will make more orange lilies only
+    <i>43.75%</i> of the time. The red-yellow breeding produces orange
+    <i>50%</i> of the time, but recycling orange offspring will accelerate the
+    orange self-breeding process. Orange offspring will often have genes that
+    further increase the odds of more orange offspring to <i>62.5% - 100%</i>.
+    </p>
+
+    {{ 'lily' | hybridize('110', '110',
+       white='trash', yellow='trash', red='trash', black='trash',
+       orange='recycle') }}
+
+    <details>
+      <summary>Detailed outcomes for recycling oranges</summary>
+
+      {{ 'lily' | hybridize('110', '120') }}
+      {{ 'lily' | hybridize('110', '220') }}
+
+      {{ 'lily' | hybridize('120', '120') }}
+      {{ 'lily' | hybridize('120', '220') }}
+
+      {{ 'lily' | hybridize('220', '220') }}
+    </details>
+  </details>
+</details>
