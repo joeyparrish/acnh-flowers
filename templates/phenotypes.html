@@ -1,15 +1,15 @@
-<div class="phenotypes">
-  <table class="phenotypes">
+<div class="green-table phenotypes">
+  <table>
     {% for color in results.keys() %}
     <tr class="possibility">
-      <td class="flower">
+      <td class="phenotype">
         {{species|flower_icon(color)}}
         <div class="probability">{{(results[color].probability * 100) | round(2)}}%</div>
       </td>
       <td class="genes">
         {% for genes in results[color].genes %}
         <div class="genotype">
-          <div class="genes">
+          <div class="genes overlay-host">
             {{genes}}
             <img class="overlay {{ 'seed' if is_seed[genes] else '' }}">
           </div>

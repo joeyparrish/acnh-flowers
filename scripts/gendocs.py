@@ -68,7 +68,7 @@ def hybridize_filter(env, species, genes1, genes2, **kwargs):
   results_table_template = env.get_template('hybrid-table-results.html')
   results_table = markupsafe.Markup(results_table_template.render(
       results=grouped_results, species=species,
-      show_outcomes=show_outcomes, extra_classes=''))
+      show_outcomes=show_outcomes))
 
   hybrid_table_template = env.get_template('hybrid-table.html')
   hybrid_table = markupsafe.Markup(hybrid_table_template.render(
@@ -114,7 +114,7 @@ def phenotypes_filter(env, species):
   phenotypes_table_template = env.get_template('phenotypes.html')
   phenotypes_table = markupsafe.Markup(phenotypes_table_template.render(
       results=grouped_results, species=species, is_seed=is_seed,
-      show_outcomes=False, extra_classes='wide'))
+      show_outcomes=False))
 
   return phenotypes_table
 

@@ -1,0 +1,324 @@
+// https://www.reddit.com/r/AnimalCrossing/comments/gmz7u2/ever_wondered_what_font_they_use_in_new_horizons/
+@font-face {
+  font-family: 'ACNH';
+  src:  url('FOT-RodinBokutoh Pro M.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'ACNH';
+  src:  url('FOT-RodinBokutoh Pro EB.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  font-family: sans-serif;
+  font-family: 'ACNH';
+
+  max-width: 80em;
+  margin: auto;
+  padding: 2em;
+
+  // Always show the scroll bar to avoid horizontal shifts when zippies are
+  // opened.
+  overflow-y: scroll;
+
+  background: white;
+  color: black;
+
+  @media (prefers-color-scheme: dark) {
+    background: black;
+    color: white;
+  }
+}
+
+@media (max-width: 480px) {
+  // table resets body's font-size, so style both
+  body, table {
+    font-size: 3.2vw;
+  }
+}
+
+h1 {
+  text-align: center;
+}
+
+a, a:visited {
+  color: darkblue;
+
+  @media (prefers-color-scheme: dark) {
+    color: lightblue;
+  }
+}
+
+details > summary {
+  cursor: pointer;
+}
+
+// A heading inside a zippy description should be inline with the marker.
+details > summary > * {
+  display: inline;
+}
+
+// A nested zippy should be indented.
+details details {
+  padding: 0 2em;
+}
+
+tt {
+  font-family: 'ACNH';
+  display: inline-block;
+  padding: 0 0.15em;
+
+  background-color: #eee;
+
+  @media (prefers-color-scheme: dark) {
+    background-color: #222;
+  }
+}
+
+#tabs {
+  display: flex;
+
+  flex-wrap: wrap;
+  justify-content: center;
+
+  max-width: 60em;
+  margin: auto;
+
+  .radiotab {
+    display: none;
+  }
+
+  .label {
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+
+    background: lightgray;
+    border: solid 1px black;
+
+    @media (prefers-color-scheme: dark) {
+      background: dimgray;
+      border: solid 1px white;
+    }
+  }
+
+  input:checked + .label {
+    background: white;
+
+    @media (prefers-color-scheme: dark) {
+      background: darkgray;
+    }
+  }
+
+  .label a, .label a:visited {
+    // Make these not look like anchors, but they will be clickable and
+    // control-clickable (open in new tab).
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    padding: 1em;
+  }
+
+  .label a:focus-visible {
+    outline: 3px solid darkblue;
+
+    // Raise it (really, the outline) above the neighboring elements.
+    position: relative;
+    z-index: 99;
+
+    @media (prefers-color-scheme: dark) {
+      outline-color: darkred;
+    }
+  }
+}
+
+#panels {
+  width: 100%;
+  // Don't have prose spread too widely across the page.
+  max-width: 50em;
+  margin: auto;
+
+  .tab-panel {
+    display: none;
+  }
+
+  .tab-panel.shown {
+    display: block;
+  }
+}
+
+.green-table {
+  border: solid 1em green;
+  border-radius: 1em;
+  margin: auto;
+  margin-bottom: 1em;
+  width: fit-content;
+
+  .overlay-host {
+    position: relative;
+  }
+
+  .overlay {
+    position: absolute;
+
+    // Let the mouseover events for the tooltip fall through to the host.
+    pointer-events: none;
+  }
+
+  .icon {
+    width: fit-content;
+    margin: auto;
+  }
+
+  .icon img.flower {
+    width: 4em;
+    height: 4em;
+
+    & + .overlay {
+      width: 1.5em;
+      height: 1.5em;
+      bottom: 0.5em;
+      right: 0.5em;
+      visibility: hidden;
+    }
+
+    & + .overlay.seed {
+      visibility: visible;
+      content: url(../icons/seed-bag.png);
+    }
+
+    & + .overlay.pass {
+      bottom: 0;
+      right: 0;
+      visibility: visible;
+    }
+  }
+
+  td {
+    text-align: center;
+  }
+
+  .symbol {
+    font-size: 300%;
+  }
+
+  .possibility .phenotype .icon img.flower {
+    width: 2em;
+    height: 2em;
+  }
+
+  div.genes {
+    border: solid 0.2em green;
+    border-radius: 1em;
+    text-align: center;
+    font-weight: bold;
+  }
+
+  .outcome img,
+  .outcome img.flower {
+    width: 3em;
+    height: 3em;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .outcome img:not(.flower) {
+      filter: invert(1);
+    }
+  }
+}
+
+.hybrid {
+  td.input {
+    width: 4em;
+  }
+}
+
+.hybrid-results {
+  table {
+    border-collapse: collapse;
+  }
+
+  tr.possibility {
+    border: solid 0.2em green;
+  }
+
+  td {
+    width: 4em;
+  }
+
+  .probability {
+    font-size: 75%;
+  }
+}
+
+.test {
+  .max-tries {
+    font-weight: bold;
+  }
+}
+
+.phenotypes {
+  table {
+    border-collapse: collapse;
+  }
+
+  tr.possibility {
+    border: solid 0.2em green;
+  }
+
+  td.genes {
+    width: 22em;
+  }
+
+  div.genotype {
+    display: inline-block;
+  }
+
+  div.genes .overlay {
+    bottom: -0.7em;
+    right: -0.7em;
+    width: 1.5em;
+    height: 1.5em;
+    visibility: hidden;
+
+    &.seed {
+      content: url(../icons/seed-bag.png);
+      visibility: visible;
+    }
+  }
+
+  td.phenotype {
+    padding: 0.3em 1em;
+  }
+
+  td.genes {
+    padding: 1em;
+  }
+}
+
+.legend {
+  td {
+    height: 4em;
+  }
+
+  td.thing {
+    width: 4em;
+    padding: 0 1em;
+  }
+
+  td.explanation {
+    text-align: left;
+    padding: 0 1em;
+  }
+
+  img.seed-example {
+    width: 2em;
+    height: 2em;
+    vertical-align: top;
+    content: url(../icons/seed-bag.png);
+  }
+}

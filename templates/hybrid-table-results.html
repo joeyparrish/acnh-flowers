@@ -1,31 +1,33 @@
-<table class="hybrid-results {{ extra_classes }}">
-  {% for color in results.keys() %}
-  <tr class="possibility">
-    <td class="flower">
-      {{species|flower_icon(color)}}
-      <div class="probability">{{(results[color].probability * 100) | round(2)}}%</div>
-    </td>
-    <td class="genes">
-      {% for genes, probability in results[color].genes %}
-      <div class="genotype">
-        <div class="genes">{{genes}}</div>
-        {% if probability %}
-        <div class="probability">{{(probability * 100) | round(2)}}%</div>
+<div class="hybrid-results">
+  <table>
+    {% for color in results.keys() %}
+    <tr class="possibility">
+      <td class="phenotype">
+        {{species|flower_icon(color)}}
+        <div class="probability">{{(results[color].probability * 100) | round(2)}}%</div>
+      </td>
+      <td class="genes">
+        {% for genes, probability in results[color].genes %}
+        <div class="genotype">
+          <div class="genes">{{genes}}</div>
+          {% if probability %}
+          <div class="probability">{{(probability * 100) | round(2)}}%</div>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </td>
+      {% if show_outcomes %}
+      <td class="outcome">
+        {% if results[color].outcome.startswith('pass-') %}
+        {{ species|flower_pass(results[color].outcome.replace('pass-', '')) }}
+        {% else %}
+        <img class="outcome"
+             src="icons/outcomes/{{results[color].outcome}}.png"
+             title="{{results[color].outcome|title}}">
         {% endif %}
-      </div>
-      {% endfor %}
-    </td>
-    {% if show_outcomes %}
-    <td class="outcome">
-      {% if results[color].outcome.startswith('pass-') %}
-      {{ species|flower_pass(results[color].outcome.replace('pass-', '')) }}
-      {% else %}
-      <img class="outcome"
-           src="icons/outcomes/{{results[color].outcome}}.png"
-           title="{{results[color].outcome|title}}">
+      </td>
       {% endif %}
-    </td>
-    {% endif %}
-  </tr>
-  {% endfor %}
-</table>
+    </tr>
+    {% endfor %}
+  </table>
+</div>
