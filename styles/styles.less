@@ -181,8 +181,8 @@ tt {
     & + .overlay {
       width: 1.5em;
       height: 1.5em;
-      bottom: 0.5em;
-      right: 0.5em;
+      bottom: 0;
+      right: 0.3em;
       visibility: hidden;
     }
 
@@ -216,6 +216,10 @@ tt {
     border-radius: 1em;
     text-align: center;
     font-weight: bold;
+  }
+
+  div.genotype {
+    display: inline-block;
   }
 
   .outcome img,
@@ -253,6 +257,10 @@ tt {
   .probability {
     font-size: 75%;
   }
+
+  td.genes {
+    width: 10em;
+  }
 }
 
 .test {
@@ -272,10 +280,7 @@ tt {
 
   td.genes {
     width: 22em;
-  }
-
-  div.genotype {
-    display: inline-block;
+    padding: 1em;
   }
 
   div.genes .overlay {
@@ -294,10 +299,6 @@ tt {
   td.phenotype {
     padding: 0.3em 1em;
   }
-
-  td.genes {
-    padding: 1em;
-  }
 }
 
 .legend {
@@ -314,11 +315,11 @@ tt {
     text-align: left;
     padding: 0 1em;
   }
+}
 
-  img.seed-example {
-    width: 2em;
-    height: 2em;
-    vertical-align: top;
-    content: url(../icons/seed-bag.png);
-  }
+img.seed-example {
+  width: 2em;
+  height: 2em;
+  vertical-align: top;
+  content: url(../icons/seed-bag.png);
 }

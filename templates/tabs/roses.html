@@ -1,6 +1,6 @@
 <p>
 There are more rose colors than any other flower. There are also more complex
-genes for roses than any other flower. Blue roses are the most rare.
+genes for roses than for any other flower. Blue roses are the most rare.
 </p>
 
 <p>
@@ -21,17 +21,17 @@ gold rose section for details.
   <p>
   Blue roses are by far the most rare phenotype (1 genotype out of 81), so the
   breeding paths to blue roses are long, numerous, and varied. If you want to
-  read an excellent and detailed write-up on blue roses, the various
-  recommended methods, and their trade-offs, refer to
+  read an excellent and detailed write-up on blue roses, the various methods
+  recommended by various people, and the trade-offs of these methods, refer to
   <a href="https://yuexr.github.io/acnh/bluerose.html">Yue's Blue Rose Guide</a>.
   </p>
 
   <p>
-  This guide uses the Folklore method, which has a small chance of blue roses
-  (6.25%) in the second-to-last stage, plus the highest chance of a blue rose
-  in the final stage (25%). This allows you to keep breeding that final plot to
-  produce more blue roses instead of relying on cloning to scale up blue rose
-  production.
+  This guide uses the <i>Folklore</i> method, because although it has more
+  stages than some other methods, the final stage has the highest possible
+  chance of a blue rose (25%). This allows you to keep breeding that final plot
+  to produce more blue roses instead of relying on cloning to scale up blue
+  rose production.
   </p>
 
   <p>
@@ -40,6 +40,13 @@ gold rose section for details.
 
   <details>
     <summary><h4>Stage 1</h4></summary>
+
+    <p>
+    In this stage, you need to make special hybrid white and purple roses for
+    stage 2, and orange roses for stage 4. These three hybrids can be grown in
+    parallel from seed roses. Save the oranges somewhere where they will not
+    breed yet.
+    </p>
 
     {{ 'rose' | hybridize('white', 'yellow',
        yellow='trash', white='next-stage') }}
@@ -53,6 +60,13 @@ gold rose section for details.
 
   <details>
     <summary><h4>Stage 2</h4></summary>
+
+    <p>
+    Next you breed stage 1's hybrid whites and purples together to make hybrid
+    purples with some different genes. In this stage, there are two genotype
+    outputs, so in stage 3 we test these offspring to determine which genes
+    they have.
+    </p>
 
     {{ 'rose' | hybridize('0110', '0020',
        white='trash', purple='next-stage') }}
@@ -83,6 +97,12 @@ gold rose section for details.
   <details>
     <summary><h4>Stage 4</h4></summary>
 
+    <p>
+    Now we take the second-generation purple hybrids that passed testing in
+    stage 3, and we breed them with the orange hybrids from stage 1. The
+    offspring are orange roses with different genes, which move on to stage 5.
+    </p>
+
     {{ 'rose' | hybridize('0120', '1100',
        white='trash', red='trash', yellow='trash',
        orange='next-stage') }}
@@ -91,6 +111,12 @@ gold rose section for details.
   <details>
     <summary><h4>Stage 5</h4></summary>
 
+    <p>
+    Here we take the orange hybrids from the previous stage and breed them with
+    each other to get hybrid red roses. Once you get a few, you can start
+    cloning them before you begin stage 6, to scale up stage 6 more quickly.
+    </p>
+
     {{ 'rose' | hybridize('1210', '1210',
        white='trash', orange='trash', yellow='trash',
        blue='keep', red='next-stage') }}
@@ -98,6 +124,12 @@ gold rose section for details.
 
   <details>
     <summary><h4>Stage 6</h4></summary>
+
+    <p>
+    These hybrid reds have the best chance to produce blue. Breed them with
+    each other to get blue roses. Any red offspring are genetically identical
+    to the parents, so they can be recycled to grow the plot.
+    </p>
 
     {{ 'rose' | hybridize('1220', '1220',
        white='trash', red='recycle', blue='keep') }}
