@@ -7,7 +7,23 @@
   </head>
   <body>
 
-    <h1>Joey's ACNH Flower Guide For Nerds</h1>
+    <header>
+      <h1>Joey's ACNH Flower Guide For Nerds</h1>
+
+      <div id="quick-ref-container">
+        <span class="label">Quick ref mode:</span>
+
+        <input type="checkbox"
+               id="quick-ref"
+               class="toggle">
+
+        <label for="quick-ref"
+               class="on-off">
+          <span>ON</span>
+          <span>OFF</span>
+        </div>
+      </div>
+    </header>
 
     <div id="tabs">
       {%
@@ -71,6 +87,15 @@
         chosenInput.checked = true;
         chosenInput.tabPanel.classList.add('shown');
       }
+
+      const quickRef = document.getElementById('quick-ref');
+      function setQuickRef() {
+        document.body.classList.toggle('quick-ref', quickRef.checked);
+        localStorage.setItem('acnh-flower-quick-ref', quickRef.checked);
+      }
+      quickRef.addEventListener('change', setQuickRef);
+      quickRef.checked = localStorage.getItem('acnh-flower-quick-ref', false);
+      setQuickRef();
 
       window.addEventListener('hashchange', pickTab);
       pickTab();

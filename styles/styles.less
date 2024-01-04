@@ -25,6 +25,8 @@ body {
   // opened.
   overflow-y: scroll;
 
+  position: relative;
+
   background: white;
   color: black;
 
@@ -77,6 +79,67 @@ tt {
   @media (prefers-color-scheme: dark) {
     background-color: #222;
   }
+}
+
+#quick-ref-container {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  font-size: 75%;
+}
+
+input.toggle {
+  display: none;
+
+  & + .on-off {
+    position: relative;
+    display: inline-flex;
+    justify-content: space-around;
+    font-weight: bold;
+
+    width: 6em;
+    height: 2em;
+    line-height: 2em;
+    border-radius: 1em;
+
+    background-color: dimgray;
+    border: 2px solid gray;
+  }
+
+  &:checked + .on-off {
+    background: green;
+  }
+
+  & + .on-off::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: all 0.5s;
+
+    width: 3em;
+    height: 2em;
+    border-radius: 1em;
+
+    background: gray;
+  }
+
+  &:checked + .on-off::after {
+    left: 3em;
+  }
+}
+
+body.quick-ref .prose,
+body.quick-ref .hide-in-quick-ref {
+  display: none;
+}
+
+.display-in-quick-ref {
+  display: none;
+}
+
+body.quick-ref .display-in-quick-ref {
+  display: block;
 }
 
 #tabs {
