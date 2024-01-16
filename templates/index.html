@@ -94,7 +94,9 @@
         localStorage.setItem('acnh-flower-quick-ref', quickRef.checked);
       }
       quickRef.addEventListener('change', setQuickRef);
-      quickRef.checked = localStorage.getItem('acnh-flower-quick-ref', false);
+      // localStorage stores a string, so compare to that.
+      quickRef.checked =
+          (localStorage.getItem('acnh-flower-quick-ref', false) == 'true')
       setQuickRef();
 
       window.addEventListener('hashchange', pickTab);
