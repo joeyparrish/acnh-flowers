@@ -1,0 +1,16 @@
+<div class="breeding-layout">
+  {% for row in rows %}
+  <div class="breeding-row">
+    {% for cell in row %}
+    <span class="breeding-cell">
+      {% if cell == ' ' %}
+      {% elif cell.isdigit() %}
+      {{ flower_by_number[cell] | flower_icon('red') }}
+      {% else %}
+      {{ 'mum' | flower_icon(colors[cell]) }}
+      {% endif %}
+    </span>
+    {% endfor %}
+  </div>
+  {% endfor %}
+</div>

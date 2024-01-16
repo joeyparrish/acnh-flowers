@@ -188,3 +188,14 @@ seeds = {
     'red': '200',
   },
 }
+
+flower_by_number = {
+  '1': 'rose',
+  '2': 'tulip',
+  '3': 'pansy',
+  '4': 'cosmo',
+  '5': 'lily',
+  '6': 'hyacinth',
+  '7': 'windflower',
+  '8': 'mum',
+}

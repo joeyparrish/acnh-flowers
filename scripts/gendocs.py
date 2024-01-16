@@ -4,7 +4,7 @@ import jinja2
 import markupsafe
 
 from hybridize import hybridize
-from phenotypes import phenotypes, seeds
+from phenotypes import phenotypes, seeds, colors, flower_by_number
 
 class GroupedResults(object):
   def __init__(self):
@@ -119,6 +119,14 @@ def phenotypes_filter(env, species):
   return phenotypes_table
 
 
+@jinja2.pass_environment
+def layout_filter(env, rows):
+  layout_template = env.get_template('layout.html')
+  layout = markupsafe.Markup(layout_template.render(
+      rows=rows, colors=colors, flower_by_number=flower_by_number))
+  return layout
+
+
 env = jinja2.Environment(
     loader=jinja2.FileSystemLoader('templates'),
     autoescape=jinja2.select_autoescape())
@@ -127,6 +135,7 @@ env.filters['test'] = test_filter
 env.filters['phenotypes'] = phenotypes_filter
 env.filters['flower_icon'] = flower_icon_filter
 env.filters['flower_pass'] = flower_pass_filter
+env.filters['layout'] = layout_filter
 env.filters['title'] = title_filter
 env.filters['load_tab_content'] = load_tab_content_filter
 

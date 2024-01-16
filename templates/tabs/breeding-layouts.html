@@ -1,0 +1,149 @@
+<p class="prose">
+Breeding layouts are a complicated topic that I have boiled down to some
+concrete recommendations. I assume that you do not have visitors to your
+island, so I'm presenting layouts that are easy and work for non-networked
+islands. To keep things simple, these layouts also do not require any trickery
+with cliffs. Each breeding chart will reference one of these layouts.
+</p>
+
+<p class="prose">
+If you want to read much more detail on many more layouts, or to find out about
+layouts that work better for islands where you can count on visitors to help
+you water, please visit
+<a href="https://yuexr.github.io/acnh/garden_layouts.html">Yue's Garden Layouts Guide</a>.
+</p>
+
+
+<h3 id="layout-a">Same-parents / Layout A / "Hexahole"</h3>
+
+<p class="prose">
+When the parents are the same (e.g. red+red), use the "hexahole" layout. Repeat
+the pattern to fill whatever space you have, but be careful to leave an empty
+border around the outside to avoid breeding failures.
+</p>
+
+{{ [
+"         ",
+" rrrrrrr ",
+" r r r r ",
+" rrrrrrr ",
+"  r r r  ",
+" rrrrrrr ",
+" r r r r ",
+" rrrrrrr ",
+"         ",
+] | layout() }}
+
+
+<h3 id="layout-b">Different-parents-different-output / Layout B / "Checkerboard"</h3>
+
+<p class="prose">
+When parents are different from each other (e.g. red-yellow), and the potential
+offspring are all different from the parents (e.g. orange, but never red or
+yellow), you can use this. It is not 100% resistent to clones. The flowers on
+the outside (red in this diagram) have a low chance of cloning instead of
+breeding. Because of this, you should never use this if a clone could be
+confused for offspring.
+</p>
+
+{{ [
+"r r r r r",
+" y y y y ",
+"r r r r r",
+" y y y y ",
+"r r r r r",
+] | layout() }}
+
+
+<h3 id="layout-c">Different-parents-same-output / Layout C / "Isolated Pairs"</h3>
+
+<p class="prose">
+When parents are different from each other (e.g. red-yellow), and the potential
+offspring could be the same as the parents (e.g. red is possible, or yellow is
+possible), you should always use this. It is 100% resistent to clones, so you
+can never confuse a clone for a usable offspring.
+</p>
+
+<p class="prose">
+You do not need a border of clear space around this layout. The interior clear
+spaces are enough for offspring.
+</p>
+
+{{ [
+"ry ry ry ry",
+"           ",
+"ry ry ry ry",
+"           ",
+"ry ry ry ry",
+] | layout() }}
+
+
+<h3 id="layout-d">Single-species cloning layout / Layout D / "Isolation"</h3>
+
+<p class="prose">
+To clone a flower, you must make sure it doesn't touch any flowers of the same
+species. Chances of a cloning event and a breeding event are the same.
+</p>
+
+<p class="prose">
+You do not need a border of clear space around this layout. The interior clear
+spaces are enough for the clones.
+</p>
+
+{{ [
+"r r r r r",
+"         ",
+"r r r r r",
+"         ",
+"r r r r r",
+] | layout() }}
+
+
+<h3 id="layout-e">Multi-species cloning layout / Layout E / "Double-Spaced Clone Rows"</h3>
+
+<p class="prose">
+You can put 4+ species together into a dense configuration. Colors don't matter
+here. The only important thing is that you keep two flowers of the same species
+from touching (adjacent or diagonal). Having an empty row/column next to each
+full one makes cloning failures unlikely. There should be enough space for
+anything to clone.
+</p>
+
+{{ [
+" 12  12 ",
+" 34  34 ",
+" 12  12 ",
+" 34  34 ",
+] | layout() }}
+
+<p class="prose">
+In this example, you see more than 4 species. Again, so long as you don't have
+any same-species flowers touching, they can only clone.
+</p>
+
+<div class="hide-in-quick-ref">
+{{ [
+" 12  12 ",
+" 34  34 ",
+" 56  56 ",
+" 78  78 ",
+" 12  12 ",
+" 34  34 ",
+" 56  56 ",
+" 78  78 ",
+] | layout() }}
+</div>
+
+<p class="prose">
+And this is a little more chaotic, but still ordered enough to keep
+same-species flowers from touching.
+</p>
+
+<div class="hide-in-quick-ref">
+{{ [
+" 12  12 ",
+" 34  74 ",
+" 52  16 ",
+" 38  34 ",
+] | layout() }}
+</div>
