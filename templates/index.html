@@ -2,8 +2,12 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
     <title>Joey's ACNH Flower Guide</title>
-    <link rel="stylesheet/less" type="text/css" href="styles/styles.less" />
-    <script src="https://cdn.jsdelivr.net/npm/less"></script>
+    <style>
+{{ 'styles.less' | compile_less }}
+    </style>
+    <script>
+{{ 'ui.js' | insert_source }}
+    </script>
   </head>
   <body>
 
@@ -56,7 +60,5 @@
       {% endfor %}
     </div>
     <div id="panels"></div>
-
-    <script src="ui.js"></script>
   </body>
 </html>

@@ -2,9 +2,30 @@
 
 import jinja2
 import markupsafe
+import subprocess
 
 from hybridize import hybridize
 from phenotypes import phenotypes, seeds, colors, flower_by_number
+
+
+def compile_less_filter(source_path):
+  with open(source_path, 'r') as f:
+    source = f.read()
+
+  try:
+    return markupsafe.Markup(subprocess.check_output([
+      'npx', 'less',
+      '--source-map-include-source',
+      '-',  # stdin
+    ], text=True, input=source))
+  except FileNotFoundError:
+    raise RuntimeError('Unable to run npx to compile less sources to css.');
+
+
+def insert_source_filter(source_path):
+  with open(source_path, 'r') as f:
+    return markupsafe.Markup(f.read())
+
 
 class GroupedResults(object):
   def __init__(self):
@@ -16,12 +37,14 @@ class GroupedResults(object):
     return repr(self.__dict__)
 
 
-def load_tab_content_filter(tab):
+@jinja2.pass_environment
+def load_tab_content_filter(env, tab):
   template = env.get_template('tabs/{}.html'.format(tab))
   return markupsafe.Markup(template.render())
 
 
-def flower_icon_filter(species, color, genes=None):
+@jinja2.pass_environment
+def flower_icon_filter(env, species, color, genes=None):
   is_seed = genes is not None and genes == seeds[species].get(color)
   seed_class = 'seed' if is_seed else ''
   template = env.get_template('flower-icon.html')
@@ -29,7 +52,8 @@ def flower_icon_filter(species, color, genes=None):
       species=species, color=color, seed_class=seed_class))
 
 
-def flower_pass_filter(species, color):
+@jinja2.pass_environment
+def flower_pass_filter(env, species, color):
   template = env.get_template('flower-pass.html')
   return markupsafe.Markup(template.render(species=species, color=color))
 
@@ -135,18 +159,25 @@ def layout_filter(env, rows):
   return layout
 
 
-env = jinja2.Environment(
-    loader=jinja2.FileSystemLoader('templates'),
-    autoescape=jinja2.select_autoescape())
-env.filters['hybridize'] = hybridize_filter
-env.filters['test'] = test_filter
-env.filters['phenotypes'] = phenotypes_filter
-env.filters['flower_icon'] = flower_icon_filter
-env.filters['flower_pass'] = flower_pass_filter
-env.filters['layout'] = layout_filter
-env.filters['title'] = title_filter
-env.filters['load_tab_content'] = load_tab_content_filter
+def main():
+  env = jinja2.Environment(
+      loader=jinja2.FileSystemLoader('templates'),
+      autoescape=jinja2.select_autoescape())
+  env.filters['hybridize'] = hybridize_filter
+  env.filters['test'] = test_filter
+  env.filters['phenotypes'] = phenotypes_filter
+  env.filters['flower_icon'] = flower_icon_filter
+  env.filters['flower_pass'] = flower_pass_filter
+  env.filters['layout'] = layout_filter
+  env.filters['title'] = title_filter
+  env.filters['load_tab_content'] = load_tab_content_filter
+  env.filters['compile_less'] = compile_less_filter
+  env.filters['insert_source'] = insert_source_filter
 
-template = env.get_template('index.html')
-with open('index.html', 'w') as f:
-  f.write(template.render())
+  template = env.get_template('index.html')
+  with open('index.html', 'w') as f:
+    f.write(template.render())
+
+
+if __name__ == '__main__':
+  main()
