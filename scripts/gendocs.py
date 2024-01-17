@@ -1,4 +1,20 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+
+# Joey's ACNH Flower Guide
+# Copyright (C) 2024 Joey Parrish
+#
+# This program is free software: you can redistribute it and/or modify
+# it under the terms of the GNU General Public License as published by
+# the Free Software Foundation, either version 3 of the License, or
+# (at your option) any later version.
+#
+# This program is distributed in the hope that it will be useful,
+# but WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+# GNU General Public License for more details.
+#
+# You should have received a copy of the GNU General Public License
+# along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import jinja2
 import markupsafe
@@ -177,6 +193,25 @@ def main():
   template = env.get_template('index.html')
   with open('index.html', 'w') as f:
     f.write(template.render())
+
+  # Minify the output.
+  subprocess.run([
+    'npx', 'html-minifier-terser',
+    '--collapse-whitespace',
+    '--remove-comments',
+    '--minify-css', 'true',
+    '--minify-js', 'true',
+    'index.html',
+    '-o', 'index.html',
+  ])
+
+  # Prepend a license header.
+  with open('index.html', 'r') as f:
+    content = f.read()
+  with open('header', 'r') as f:
+    content = f.read() + content
+  with open('index.html', 'w') as f:
+    f.write(content)
 
 
 if __name__ == '__main__':
