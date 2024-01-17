@@ -70,9 +70,17 @@ def hybridize_filter(env, species, genes1, genes2, layout=None, **kwargs):
       results=grouped_results, species=species,
       show_outcomes=show_outcomes))
 
+  # Unfortunate duplication of names from templates/tabs/breeding-layouts.html
+  layout_names = {
+    'a': 'Hexahole',
+    'b': 'Checkerboard',
+    'c': 'Isolated Pairs',
+  }
+
   hybrid_table_template = env.get_template('hybrid-table.html')
   hybrid_table = markupsafe.Markup(hybrid_table_template.render(
       results_table=results_table, species=species,
+      layout=layout, layout_name=layout_names[layout] if layout else None,
       genes1=genes1, color1=color1,
       genes2=genes2, color2=color2))
 

@@ -1,4 +1,7 @@
 <div class="green-table hybrid">
+  {% if layout %}
+  <div class="layout-link"><a href="#layout-{{layout}}">Layout: {{layout_name}}</a></div>
+  {% endif %}
   <table>
     <tr>
       <td class="input">

@@ -224,6 +224,7 @@ body.quick-ref .display-in-quick-ref {
   margin: auto;
   margin-bottom: 1em;
   width: fit-content;
+  position: relative;
 
   .overlay-host {
     position: relative;
@@ -299,6 +300,17 @@ body.quick-ref .display-in-quick-ref {
     .outcome img:not(.flower) {
       filter: invert(1);
     }
+  }
+
+  .layout-link {
+    position: absolute;
+    top: -0.9em;
+    left: -0.9em;
+    padding: 0 0.5em;
+    background: green;
+    border-radius: 1em;
+    font-weight: bold;
+    font-size: 85%;
   }
 }
 
