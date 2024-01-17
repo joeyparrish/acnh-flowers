@@ -13,9 +13,11 @@ one you need to follow if you are trying to breed all colors.
   </p>
 
   {{ 'mum' | hybridize('red', 'yellow',
+     layout='c',
      yellow='next-stage') }}
 
   {{ 'mum' | hybridize('110', '110',
+     layout='a',
      white='trash', yellow='trash', red='trash', purple='recycle',
      pink='keep', green='keep') }}
 
@@ -55,7 +57,9 @@ one you need to follow if you are trying to breed all colors.
     space-efficient than cloning layouts.
     </p>
 
-    {{ 'mum' | hybridize('220', '220', green='keep') }}
+    {{ 'mum' | hybridize('220', '220',
+       layout='a',
+       green='keep') }}
   </details>
 </details>
 
@@ -68,7 +72,9 @@ one you need to follow if you are trying to breed all colors.
   while working toward green mums.
   </p>
 
-  {{ 'mum' | hybridize('red', 'white', pink='keep') }}
+  {{ 'mum' | hybridize('red', 'white',
+     layout='b',
+     pink='keep') }}
 
   <details>
     <summary>Pink mum self-breeding</summary>
@@ -81,10 +87,13 @@ one you need to follow if you are trying to breed all colors.
     </p>
 
     {{ 'mum' | hybridize('100', '100',
+       layout='a',
        red='trash', white='trash', pink='keep') }}
     {{ 'mum' | hybridize('100', '101',
+       layout='a',
        red='trash', white='trash', pink='keep') }}
     {{ 'mum' | hybridize('101', '101',
+       layout='a',
        red='trash', white='trash', purple='trash', pink='keep') }}
   </details>
 </details>
@@ -98,7 +107,9 @@ one you need to follow if you are trying to breed all colors.
   likely get purple mums while working toward green mums.
   </p>
 
-  {{ 'mum' | hybridize('white', 'white', purple='keep') }}
+  {{ 'mum' | hybridize('white', 'white',
+     layout='a',
+     purple='keep') }}
 
   <details>
     <summary>Purple mum self-breeding</summary>
@@ -109,6 +120,8 @@ one you need to follow if you are trying to breed all colors.
     purple (as found above in the green mum path) may produce other results.
     </p>
 
-    {{ 'mum' | hybridize('002', '002', purple='keep') }}
+    {{ 'mum' | hybridize('002', '002',
+       layout='a',
+       purple='keep') }}
   </details>
 </details>

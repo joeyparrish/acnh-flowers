@@ -43,7 +43,7 @@ def is_gene(gene):
 
 
 @jinja2.pass_environment
-def hybridize_filter(env, species, genes1, genes2, **kwargs):
+def hybridize_filter(env, species, genes1, genes2, layout=None, **kwargs):
   if not is_gene(genes1):
     genes1 = seeds[species][genes1]
   if not is_gene(genes2):

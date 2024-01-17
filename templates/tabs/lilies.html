@@ -13,6 +13,7 @@ a side effect of working on black.
   </p>
 
   {{ 'lily' | hybridize('red', 'red',
+     layout='a',
      red='trash',
      pink='keep', black='keep') }}
 
@@ -25,7 +26,9 @@ a side effect of working on black.
     black may produce other results.
     </p>
 
-    {{ 'lily' | hybridize('200', '200', black='keep') }}
+    {{ 'lily' | hybridize('200', '200',
+       layout='a',
+       black='keep') }}
   </details>
 </details>
 
@@ -39,6 +42,7 @@ a side effect of working on black.
   </p>
 
   {{ 'lily' | hybridize('red', 'white',
+     layout='b',
      white='trash',
      pink='keep') }}
 
@@ -53,6 +57,7 @@ a side effect of working on black.
     </p>
 
     {{ 'lily' | hybridize('101', '101',
+       layout='a',
        red='trash', white='trash', black='trash',
        pink='keep') }}
   </details>
@@ -66,6 +71,7 @@ a side effect of working on black.
   </p>
 
   {{ 'lily' | hybridize('red', 'yellow',
+     layout='b',
      yellow='trash', orange='keep') }}
 
   <details>
@@ -80,6 +86,7 @@ a side effect of working on black.
     </p>
 
     {{ 'lily' | hybridize('110', '110',
+       layout='a',
        white='trash', yellow='trash', red='trash', black='trash',
        orange='recycle') }}
 

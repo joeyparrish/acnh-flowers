@@ -18,12 +18,15 @@ Unlike every other flower, windflower seeds come in red, white, and
   </p>
 
   {{ 'windflower' | hybridize('white', 'white',
+     layout='a',
      white='trash', blue='next-stage') }}
 
   {{ 'windflower' | hybridize('red', '002',
+     layout='c',
      red='next-stage') }}
 
   {{ 'windflower' | hybridize('101', '101',
+     layout='a',
      red='trash', blue='trash', white='trash',
      purple='keep') }}
 
@@ -35,7 +38,9 @@ Unlike every other flower, windflower seeds come in red, white, and
     space-efficient than cloning layouts.
     </p>
 
-    {{ 'windflower' | hybridize('202', '202') }}
+    {{ 'windflower' | hybridize('202', '202',
+       layout='a',
+       purple='keep') }}
   </details>
 </details>
 
@@ -46,7 +51,9 @@ Unlike every other flower, windflower seeds come in red, white, and
   Pink windflowers are easy: red &times; orange = pink.
   </p>
 
-  {{ 'windflower' | hybridize('red', 'orange', pink='keep') }}
+  {{ 'windflower' | hybridize('red', 'orange',
+     layout='b',
+     pink='keep') }}
 
   <details>
     <summary>Pink windflower self-breeding</summary>
@@ -58,7 +65,9 @@ Unlike every other flower, windflower seeds come in red, white, and
     cloning layouts to create more pink windflowers.
     </p>
 
-    {{ 'windflower' | hybridize('110', '110') }}
+    {{ 'windflower' | hybridize('110', '110',
+       layout='a',
+       pink='keep') }}
   </details>
 </details>
 
@@ -72,6 +81,7 @@ Unlike every other flower, windflower seeds come in red, white, and
   </p>
 
   {{ 'windflower' | hybridize('white', 'white',
+     layout='a',
      white='trash', blue='keep') }}
 
   <details>
@@ -83,6 +93,8 @@ Unlike every other flower, windflower seeds come in red, white, and
     blue may produce other results.
     </p>
 
-    {{ 'windflower' | hybridize('002', '002') }}
+    {{ 'windflower' | hybridize('002', '002',
+       layout='a',
+       blue='keep') }}
   </details>
 </details>

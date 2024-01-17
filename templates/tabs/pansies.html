@@ -12,12 +12,15 @@ are a side effect of pursuing purple.
   </p>
 
   {{ 'pansy' | hybridize('white', 'white',
+     layout='a',
      white='trash', blue='next-stage') }}
 
   {{ 'pansy' | hybridize('red', '002',
+     layout='c',
      red='next-stage') }}
 
   {{ 'pansy' | hybridize('101', '101',
+     layout='a',
      red='trash', blue='trash', white='trash',
      purple='keep') }}
 
@@ -29,7 +32,9 @@ are a side effect of pursuing purple.
     space-efficient than cloning layouts.
     </p>
 
-    {{ 'pansy' | hybridize('202', '202') }}
+    {{ 'pansy' | hybridize('202', '202',
+       layout='a',
+       purple='keep') }}
   </details>
 </details>
 
@@ -40,7 +45,9 @@ are a side effect of pursuing purple.
   Orange pansies are easy: red &times; yellow = orange.
   </p>
 
-  {{ 'pansy' | hybridize('red', 'yellow', orange='keep') }}
+  {{ 'pansy' | hybridize('red', 'yellow',
+     layout='b',
+     orange='keep') }}
 
   <details>
     <summary>Orange pansy self-breeding</summary>
@@ -52,7 +59,9 @@ are a side effect of pursuing purple.
     on cloning layouts to create more orange pansies.
     </p>
 
-    {{ 'pansy' | hybridize('110', '110') }}
+    {{ 'pansy' | hybridize('110', '110',
+       layout='a',
+       orange='keep') }}
   </details>
 </details>
 
@@ -66,6 +75,7 @@ are a side effect of pursuing purple.
   </p>
 
   {{ 'pansy' | hybridize('white', 'white',
+     layout='a',
      white='trash', blue='keep') }}
 
   <details>
@@ -77,6 +87,8 @@ are a side effect of pursuing purple.
     blue may produce other results.
     </p>
 
-    {{ 'pansy' | hybridize('002', '002') }}
+    {{ 'pansy' | hybridize('002', '002',
+       layout='a',
+       blue='keep') }}
   </details>
 </details>

@@ -16,19 +16,23 @@ get all colors.
   </p>
 
   {{ 'tulip' | hybridize('red', 'yellow',
+     layout='c',
      orange='next-stage', yellow='next-stage') }}
 
   {{ 'tulip' | hybridize('110', '110',
+     layout='a',
      white='trash', yellow='trash', red='trash',
      orange='recycle',
      pink='keep', black='keep', purple='keep') }}
 
   {{ 'tulip' | hybridize('110', '111',
+     layout='a',
      white='trash', yellow='trash', red='trash',
      orange='recycle',
      pink='keep', black='keep', purple='keep') }}
 
   {{ 'tulip' | hybridize('111', '111',
+     layout='a',
      white='trash', yellow='trash', red='trash',
      orange='recycle',
      pink='keep', black='keep', purple='keep') }}
@@ -67,7 +71,9 @@ get all colors.
     space-efficient than cloning layouts.
     </p>
 
-    {{ 'tulip' | hybridize('220', '220', purple='keep') }}
+    {{ 'tulip' | hybridize('220', '220',
+       layout='a',
+       purple='keep') }}
   </details>
 </details>
 
@@ -81,6 +87,7 @@ get all colors.
   </p>
 
   {{ 'tulip' | hybridize('red', 'white',
+     layout='b',
      red='trash', white='trash',
      pink='keep') }}
 
@@ -95,14 +102,17 @@ get all colors.
     </p>
 
     {{ 'tulip' | hybridize('100', '100',
+       layout='a',
        red='trash', white='trash', black='trash',
        pink='keep') }}
 
     {{ 'tulip' | hybridize('100', '101',
+       layout='a',
        red='trash', white='trash', black='trash',
        pink='keep') }}
 
     {{ 'tulip' | hybridize('101', '101',
+       layout='a',
        red='trash', white='trash', black='trash',
        pink='keep') }}
   </details>
@@ -118,6 +128,7 @@ get all colors.
   </p>
 
   {{ 'tulip' | hybridize('red', 'yellow',
+     layout='b',
      yellow='trash', orange='keep') }}
 
   <details>
@@ -131,6 +142,7 @@ get all colors.
     </p>
 
     {{ 'tulip' | hybridize('110', '110',
+       layout='a',
        white='trash', yellow='trash', red='trash', pink='trash',
        black='trash', purple='trash',
        orange='keep') }}
@@ -147,6 +159,7 @@ get all colors.
   </p>
 
   {{ 'tulip' | hybridize('red', 'red',
+     layout='a',
      red='trash', black='keep') }}
 
   <details>
@@ -158,6 +171,8 @@ get all colors.
     black may produce other results.
     </p>
 
-    {{ 'tulip' | hybridize('200', '200', black='keep') }}
+    {{ 'tulip' | hybridize('200', '200',
+       layout='a',
+       black='keep') }}
   </details>
 </details>

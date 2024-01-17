@@ -49,12 +49,15 @@ gold rose section for details.
     </p>
 
     {{ 'rose' | hybridize('white', 'yellow',
+       layout='c',
        yellow='trash', white='next-stage') }}
 
     {{ 'rose' | hybridize('white', 'white',
+       layout='a',
        white='trash', purple='next-stage') }}
 
     {{ 'rose' | hybridize('red', 'yellow',
+       layout='b',
        yellow='trash', orange='future-stage') }}
   </details>
 
@@ -69,6 +72,7 @@ gold rose section for details.
     </p>
 
     {{ 'rose' | hybridize('0110', '0020',
+       layout='c',
        white='trash', purple='next-stage') }}
   </details>
 
@@ -104,6 +108,7 @@ gold rose section for details.
     </p>
 
     {{ 'rose' | hybridize('0120', '1100',
+       layout='c',
        white='trash', red='trash', yellow='trash',
        orange='next-stage') }}
   </details>
@@ -118,6 +123,7 @@ gold rose section for details.
     </p>
 
     {{ 'rose' | hybridize('1210', '1210',
+       layout='a',
        white='trash', orange='trash', yellow='trash',
        blue='keep', red='next-stage') }}
   </details>
@@ -132,6 +138,7 @@ gold rose section for details.
     </p>
 
     {{ 'rose' | hybridize('1220', '1220',
+       layout='a',
        white='trash', red='recycle', blue='keep') }}
   </details>
 
@@ -143,7 +150,9 @@ gold rose section for details.
     space-efficient than cloning layouts.
     </p>
 
-    {{ 'rose' | hybridize('2220', '2220', blue='keep') }}
+    {{ 'rose' | hybridize('2220', '2220',
+       layout='a',
+       blue='keep') }}
   </details>
 </details>
 
@@ -157,6 +166,7 @@ gold rose section for details.
   </p>
 
   {{ 'rose' | hybridize('white', 'white',
+     layout='a',
      white='trash', purple='keep') }}
 
   <details>
@@ -168,7 +178,9 @@ gold rose section for details.
     purple may produce other results.
     </p>
 
-    {{ 'rose' | hybridize('2220', '2220', blue='keep') }}
+    {{ 'rose' | hybridize('2220', '2220',
+       layout='a',
+       purple='keep') }}
   </details>
 </details>
 
@@ -181,6 +193,7 @@ gold rose section for details.
   </p>
 
   {{ 'rose' | hybridize('white', 'red',
+     layout='b',
      red='trash', pink='keep') }}
 
   <details>
@@ -193,9 +206,15 @@ gold rose section for details.
     to rely on cloning layouts to create more pink roses.
     </p>
 
-    {{ 'rose' | hybridize('1001', '1001') }}
-    {{ 'rose' | hybridize('1001', '1011') }}
-    {{ 'rose' | hybridize('1011', '1011') }}
+    {{ 'rose' | hybridize('1001', '1001',
+       layout='a',
+       pink='keep') }}
+    {{ 'rose' | hybridize('1001', '1011',
+       layout='a',
+       pink='keep') }}
+    {{ 'rose' | hybridize('1011', '1011',
+       layout='a',
+       pink='keep') }}
   </details>
 </details>
 
@@ -209,6 +228,7 @@ gold rose section for details.
   </p>
 
   {{ 'rose' | hybridize('red', 'yellow',
+     layout='b',
      yellow='trash', orange='keep') }}
 
   <details>
@@ -229,6 +249,7 @@ gold rose section for details.
     </p>
 
     {{ 'rose' | hybridize('1100', '1100',
+       layout='a',
        white='trash', yellow='trash', red='trash', black='trash',
        orange='recycle') }}
 
@@ -261,6 +282,7 @@ gold rose section for details.
   </p>
 
   {{ 'rose' | hybridize('red', 'red',
+     layout='a',
      red='trash', black='keep', pink='keep') }}
 
   <details>
@@ -272,7 +294,9 @@ gold rose section for details.
     black may produce other results.
     </p>
 
-    {{ 'rose' | hybridize('2000', '2000') }}
+    {{ 'rose' | hybridize('2000', '2000',
+       layout='a',
+       black='keep') }}
   </details>
 </details>
 

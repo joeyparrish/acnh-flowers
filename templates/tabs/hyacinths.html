@@ -15,19 +15,23 @@ you might not need to follow any path other than purple to get all colors.
   </p>
 
   {{ 'hyacinth' | hybridize('red', 'yellow',
+     layout='b',
      orange='next-stage', yellow='next-stage') }}
 
   {{ 'hyacinth' | hybridize('110', '110',
+     layout='a',
      white='trash', yellow='trash', red='trash',
      orange='recycle',
      pink='keep', blue='keep', purple='keep') }}
 
   {{ 'hyacinth' | hybridize('110', '111',
+     layout='a',
      white='trash', yellow='trash', red='trash',
      orange='recycle',
      pink='keep', blue='keep', purple='keep') }}
 
   {{ 'hyacinth' | hybridize('111', '111',
+     layout='a',
      white='trash', yellow='trash', red='trash',
      orange='recycle',
      pink='keep', blue='keep', purple='keep') }}
@@ -66,7 +70,9 @@ you might not need to follow any path other than purple to get all colors.
     space-efficient than cloning layouts.
     </p>
 
-    {{ 'hyacinth' | hybridize('220', '220', purple='keep') }}
+    {{ 'hyacinth' | hybridize('220', '220',
+       layout='a',
+       purple='keep') }}
   </details>
 </details>
 
@@ -80,6 +86,7 @@ you might not need to follow any path other than purple to get all colors.
   </p>
 
   {{ 'hyacinth' | hybridize('red', 'white',
+     layout='b',
      red='trash', white='trash',
      pink='keep') }}
 
@@ -94,6 +101,7 @@ you might not need to follow any path other than purple to get all colors.
     </p>
 
     {{ 'hyacinth' | hybridize('101', '101',
+       layout='a',
        red='trash', white='trash', blue='trash',
        pink='keep') }}
   </details>
@@ -109,6 +117,7 @@ you might not need to follow any path other than purple to get all colors.
   </p>
 
   {{ 'hyacinth' | hybridize('red', 'yellow',
+     layout='b',
      yellow='trash', orange='keep') }}
 
   <details>
@@ -122,6 +131,7 @@ you might not need to follow any path other than purple to get all colors.
     </p>
 
     {{ 'hyacinth' | hybridize('110', '110',
+       layout='a',
        white='trash', yellow='trash', red='trash', pink='trash',
        blue='trash', purple='trash',
        orange='keep') }}
@@ -138,6 +148,7 @@ you might not need to follow any path other than purple to get all colors.
   </p>
 
   {{ 'hyacinth' | hybridize('white', 'white',
+     layout='a',
      white='trash', blue='keep') }}
 
   <details>
@@ -149,6 +160,8 @@ you might not need to follow any path other than purple to get all colors.
     blue may produce other results.
     </p>
 
-    {{ 'hyacinth' | hybridize('002', '002', blue='keep') }}
+    {{ 'hyacinth' | hybridize('002', '002',
+       layout='a',
+       blue='keep') }}
   </details>
 </details>

@@ -13,17 +13,21 @@ one you need to follow if you are trying to breed all colors.
   </p>
 
   {{ 'cosmo' | hybridize('red', 'yellow',
+     layout='b',
      orange='next-stage', pink='keep') }}
 
   {{ 'cosmo' | hybridize('110', '110',
+     layout='a',
      white='trash', yellow='trash', red='trash',
      orange='trash', pink='keep', black='keep') }}
 
   {{ 'cosmo' | hybridize('110', '111',
+     layout='a',
      white='trash', yellow='trash', red='trash',
      orange='trash', pink='keep', black='keep') }}
 
   {{ 'cosmo' | hybridize('111', '111',
+     layout='a',
      white='trash', yellow='trash', red='trash',
      orange='trash', pink='keep', black='keep') }}
 
@@ -157,9 +161,15 @@ one you need to follow if you are trying to breed all colors.
     Even so, self-breeding is more space-efficient than cloning layouts.
     </p>
 
-    {{ 'cosmo' | hybridize('220', '220', black='keep') }}
-    {{ 'cosmo' | hybridize('220', '221', black='keep') }}
-    {{ 'cosmo' | hybridize('221', '221', black='keep', red='trash') }}
+    {{ 'cosmo' | hybridize('220', '220',
+       layout='a',
+       black='keep') }}
+    {{ 'cosmo' | hybridize('220', '221',
+       layout='a',
+       black='keep') }}
+    {{ 'cosmo' | hybridize('221', '221',
+       layout='a',
+       black='keep', red='trash') }}
   </details>
 </details>
 
@@ -172,7 +182,9 @@ one you need to follow if you are trying to breed all colors.
   while working toward black cosmos.
   </p>
 
-  {{ 'cosmo' | hybridize('red', 'white', pink='keep') }}
+  {{ 'cosmo' | hybridize('red', 'white',
+     layout='b',
+     pink='keep') }}
 
   <details>
     <summary>Pink cosmo self-breeding</summary>
@@ -185,10 +197,13 @@ one you need to follow if you are trying to breed all colors.
     </p>
 
     {{ 'cosmo' | hybridize('100', '100',
+       layout='a',
        red='trash', white='trash', pink='keep') }}
     {{ 'cosmo' | hybridize('100', '101',
+       layout='a',
        red='trash', white='trash', pink='keep') }}
     {{ 'cosmo' | hybridize('101', '101',
+       layout='a',
        red='trash', white='trash', pink='keep') }}
   </details>
 </details>
@@ -202,7 +217,9 @@ one you need to follow if you are trying to breed all colors.
   cosmos while working toward black cosmos.
   </p>
 
-  {{ 'cosmo' | hybridize('red', 'yellow', orange='keep') }}
+  {{ 'cosmo' | hybridize('red', 'yellow',
+     layout='b',
+     orange='keep') }}
 
   <details>
     <summary>Orange cosmo self-breeding</summary>
@@ -215,12 +232,15 @@ one you need to follow if you are trying to breed all colors.
     </p>
 
     {{ 'cosmo' | hybridize('110', '110',
+       layout='a',
        white='trash', yellow='trash', red='trash', pink='trash',
        orange='keep', black='trash') }}
     {{ 'cosmo' | hybridize('110', '111',
+       layout='a',
        white='trash', yellow='trash', red='trash', pink='trash',
        orange='keep', black='trash') }}
     {{ 'cosmo' | hybridize('111', '111',
+       layout='a',
        white='trash', yellow='trash', red='trash', pink='trash',
        orange='keep', black='trash') }}
   </details>
