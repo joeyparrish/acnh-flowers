@@ -14,13 +14,39 @@ for (const input of inputs) {
   document.getElementById('panels').appendChild(input.tabPanel);
 }
 
+// When we load the breeding layouts panel, if we are supposed to link to a
+// specific layout, we use IntersectionObserver to know when that layout is
+// visible and can be scrolled to. When that event fires, if scrollToLayout is
+// non-null, we scroll to the layout.
+let scrollToLayout = null;
+const breedingPanel = document.getElementById('panel-breeding-layouts');
+const observer = new IntersectionObserver((entries) => {
+  if (entries[0].intersectionRatio) {
+    if (scrollToLayout) {
+      const layoutElement = document.getElementById(scrollToLayout);
+      layoutElement.scrollIntoView();
+      scrollToLayout = null;
+    }
+  }
+}, {root: document.body});
+observer.observe(breedingPanel);
+
 // When the hash changes, pick the matching tab, or fall back to the first one.
 function pickTab() {
   for (const input of inputs) {
     input.tabPanel.classList.remove('shown');
   }
 
-  const targetId = 'tab-' + location.hash.substr(1);  // drop #
+  const hashValue = location.hash.substr(1);  // drop #
+  let targetId;
+  scrollToLayout = null;
+  if (hashValue.startsWith('layout-')) {
+    targetId = 'tab-breeding-layouts';
+    scrollToLayout = hashValue;
+  } else {
+    targetId = 'tab-' + hashValue;
+  }
+
   const chosenInput =
       inputs.find(input => input.id == targetId) || inputs[0];
   chosenInput.checked = true;
