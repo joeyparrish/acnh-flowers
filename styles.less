@@ -20,6 +20,7 @@
   src: url('FOT-RodinBokutoh Pro M.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
+  font-display: block;
 }
 
 @font-face {
@@ -27,6 +28,7 @@
   src: url('FOT-RodinBokutoh Pro EB.otf') format('opentype');
   font-weight: 700;
   font-style: normal;
+  font-display: block;
 }
 
 body {
@@ -162,8 +164,24 @@ body.quick-ref .display-in-quick-ref {
   display: block;
 }
 
+#loading {
+  font-family: 'ACNH', sans-serif;
+  font-weight: bold;
+  font-size: 250%;
+  text-align: center;
+
+  // Initially shown, until we are ready to show the tabs.
+  &.ready {
+    display: none;
+  }
+}
+
 #tabs {
-  display: flex;
+  // Initially hidden, until some JS runs to make some annoying DOM changes.
+  display: none;
+  &.ready {
+    display: flex;
+  }
 
   flex-wrap: wrap;
   justify-content: center;

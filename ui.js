@@ -26,15 +26,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Find the associated panel.
     input.tabPanel = document.getElementById('panel-' + tabId);
     // Move it to the panel element so it flows correctly as separate from the
-    // tabs.  It is generated as part of the tabs element for convenience in the
-    // templating system.
+    // tabs.  It is generated as part of the tabs element for convenience in
+    // the templating system.
     document.getElementById('panels').appendChild(input.tabPanel);
   }
+  // Only now that we have moved everything, show the tabs and hide the loading
+  // message.
+  document.getElementById('tabs').classList.add('ready');
+  document.getElementById('loading').classList.add('ready');
 
   // When we load the breeding layouts panel, if we are supposed to link to a
   // specific layout, we use IntersectionObserver to know when that layout is
-  // visible and can be scrolled to. When that event fires, if scrollToLayout is
-  // non-null, we scroll to the layout.
+  // visible and can be scrolled to. When that event fires, if scrollToLayout
+  // is non-null, we scroll to the layout.
   let scrollToLayout = null;
   const breedingPanel = document.getElementById('panel-breeding-layouts');
   const observer = new IntersectionObserver((entries) => {
@@ -48,7 +52,8 @@ document.addEventListener('DOMContentLoaded', () => {
   }, {root: document.body});
   observer.observe(breedingPanel);
 
-  // When the hash changes, pick the matching tab, or fall back to the first one.
+  // When the hash changes, pick the matching tab, or fall back to the first
+  // one.
   function pickTab() {
     for (const input of inputs) {
       input.tabPanel.classList.remove('shown');
