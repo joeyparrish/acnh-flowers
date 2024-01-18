@@ -67,6 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
       scrollToLayout = hashValue;
     } else {
       targetId = 'tab-' + hashValue;
+      window.scrollTo(0, 0);
     }
 
     const chosenInput =
