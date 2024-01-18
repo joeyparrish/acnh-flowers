@@ -2,10 +2,16 @@
 
 Copyright (C) 2024 Joey Parrish
 
+A detailed flower breeding guide for Animal Crossing: New Horizons. Includes gene sequences for all species, tables with full outcomes for all useful breeding pairs, clear layout recommendations, and various appendices. If you are missing something from another guide, try this one.
+
+
+## License overview
+
 Code (HTML, JS, CSS, etc) is licensed under GPL v3.0.
 
 Content (text, generated output, etc) is licensed under Creative Commons
 Attribution-NonCommercial-ShareAlike v4.0.
+
 
 ## Publication
 
