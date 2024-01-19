@@ -1,3 +1,7 @@
 *.sw*
 __pycache__
 index.html
+service-worker.js
+workbox-*.js
+*.map
+node_modules/

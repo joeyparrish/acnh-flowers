@@ -24,7 +24,7 @@ jobs:
         uses: actions/configure-pages@v3
 
       - name: Build
-        run: ./scripts/gendocs.py
+        run: npm ci && ./scripts/gendocs.py && ./build-service-worker.js
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v2

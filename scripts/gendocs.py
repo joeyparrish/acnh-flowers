@@ -30,7 +30,7 @@ def compile_less_filter(source_path):
 
   try:
     return markupsafe.Markup(subprocess.check_output([
-      'npx', 'less',
+      './node_modules/.bin/lessc',
       '--source-map-include-source',
       '-',  # stdin
     ], text=True, input=source))
@@ -196,7 +196,7 @@ def main():
 
   # Minify the output.
   subprocess.run([
-    'npx', 'html-minifier-terser',
+    './node_modules/.bin/html-minifier-terser',
     '--collapse-whitespace',
     '--remove-comments',
     '--minify-css', 'true',
