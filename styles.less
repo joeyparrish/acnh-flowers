@@ -252,6 +252,46 @@ body.quick-ref .display-in-quick-ref {
   }
 }
 
+.overlay-host {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+
+  // Let the mouseover events for the tooltip fall through to the host.
+  pointer-events: none;
+}
+
+.icon {
+  width: fit-content;
+  margin: auto;
+}
+
+.icon img.flower {
+  width: 4em;
+  height: 4em;
+
+  & + .overlay {
+    width: 1.5em;
+    height: 1.5em;
+    bottom: 0;
+    right: 0.3em;
+    visibility: hidden;
+  }
+
+  & + .overlay.seed {
+    visibility: visible;
+    content: url(icons/seed-bag.png);
+  }
+
+  & + .overlay.pass {
+    bottom: 0;
+    right: 0;
+    visibility: visible;
+  }
+}
+
 .green-table {
   border: solid 1em green;
   border-radius: 1em;
@@ -259,46 +299,6 @@ body.quick-ref .display-in-quick-ref {
   margin-bottom: 1em;
   width: fit-content;
   position: relative;
-
-  .overlay-host {
-    position: relative;
-  }
-
-  .overlay {
-    position: absolute;
-
-    // Let the mouseover events for the tooltip fall through to the host.
-    pointer-events: none;
-  }
-
-  .icon {
-    width: fit-content;
-    margin: auto;
-  }
-
-  .icon img.flower {
-    width: 4em;
-    height: 4em;
-
-    & + .overlay {
-      width: 1.5em;
-      height: 1.5em;
-      bottom: 0;
-      right: 0.3em;
-      visibility: hidden;
-    }
-
-    & + .overlay.seed {
-      visibility: visible;
-      content: url(icons/seed-bag.png);
-    }
-
-    & + .overlay.pass {
-      bottom: 0;
-      right: 0;
-      visibility: visible;
-    }
-  }
 
   td {
     text-align: center;
